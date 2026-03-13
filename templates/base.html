@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <meta name="description" content="{{ description }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ root }}style.css">
+</head>
+<body>
+
+<div class="grid-bg"></div>
+<div class="scanline"></div>
+
+<div class="content">
+
+    {% block before_nav %}{% endblock %}
+
+    <nav class="site-nav">
+        {% for item in strings.nav %}
+        <a href="{{ item.href }}"{% if item.id == active_page %} class="active"{% endif %}>{{ item.label }}</a>
+        {% endfor %}
+        {% if languages | length > 1 %}
+        <span class="nav-sep">|</span>
+        {% for l in languages %}
+        {% if l != current_lang %}
+        <a href="{% if l == default_lang %}{{ root }}{% else %}{{ root }}{{ l }}/{% endif %}{{ active_page }}.html" class="lang-link">{{ l }}</a>
+        {% endif %}
+        {% endfor %}
+        {% endif %}
+    </nav>
+
+    {% block content %}{% endblock %}
+
+    <footer>
+        <div class="content">
+            <span class="led-indicator"></span> {{ strings.footer }}
+        </div>
+    </footer>
+
+</div>
+
+{% block scripts %}
+<script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, {
+        threshold: 0.08,
+        rootMargin: '0px 0px -40px 0px'
+    });
+
+    document.querySelectorAll('section:not(.hero)').forEach(section => {
+        observer.observe(section);
+    });
+</script>
+{% endblock %}
+
+</body>
+</html>

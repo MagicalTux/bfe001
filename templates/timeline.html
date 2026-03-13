@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <section>
+        <div class="section-header">
+            <span class="section-addr">$FC0000</span>
+            <h2 class="section-title">{{ title }}</h2>
+        </div>
+        <div class="prose">
+            {{ intro }}
+        </div>
+
+        <div class="timeline">
+            {% for entry in entries %}
+            <div class="timeline-item{% if entry.active %} active{% endif %}">
+                <div class="timeline-age">{{ entry.age }}</div>
+                <div class="timeline-machine">{{ entry.machine }}{% if entry.spec %} <span class="spec">{{ entry.spec }}</span>{% endif %}</div>
+                <div class="timeline-desc">
+                    {{ entry.content }}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}

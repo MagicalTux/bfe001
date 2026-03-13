@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% for section in sections %}
+    <section>
+        <div class="section-header">
+            <span class="section-addr">{{ section.addr }}</span>
+            <h2 class="section-title">{{ section.title }}</h2>
+        </div>
+        <div class="prose">
+            {{ section.content }}
+        </div>
+    </section>
+    {% endfor %}
+{% endblock %}

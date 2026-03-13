@@ -236,6 +236,16 @@ section.visible {
     border-bottom-color: var(--amber-dim);
 }
 
+.site-nav .nav-sep {
+    color: var(--border-light);
+}
+
+.site-nav .lang-link {
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+}
+
 /* ═══════════════════════════════════════════
    SECTION HEADERS
    ═══════════════════════════════════════════ */
@@ -411,6 +421,24 @@ section.visible {
     font-size: 17px;
     color: var(--text);
     max-width: 560px;
+}
+
+.timeline-desc p {
+    margin-bottom: 12px;
+}
+
+.timeline-desc p:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-desc code {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.88em;
+    color: var(--amber);
+    background: rgba(240, 165, 0, 0.07);
+    padding: 1px 6px;
+    border-radius: 3px;
+    border: 1px solid rgba(240, 165, 0, 0.1);
 }
 
 /* ═══════════════════════════════════════════
