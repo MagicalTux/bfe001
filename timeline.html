@@ -63,6 +63,18 @@ realising they had names.</p>
             </div>
             
             <div class="timeline-item">
+                <div class="timeline-age">CHILDHOOD</div>
+                <div class="timeline-machine">La Sérrée <span class="spec">grandmother's estate</span></div>
+                <div class="timeline-desc">
+                    <p>My grandmother Marie lived in a small château called La Sérrée, with
+red shutters, a vast park, a river, pontoons, a grotto, and a belvedere
+overlooking the forest. The library overflowed with books — I once found
+a grimoire of magic spells in it. She kept cats, sometimes as many as
+fifty-six. Both she and my mother were members of Mensa.</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
                 <div class="timeline-age">~1988–1991 · AGE 3–5 · PRE-SCHOOL</div>
                 <div class="timeline-machine">Sinclair ZX Spectrum <span class="spec">48K → 128K</span></div>
                 <div class="timeline-desc">
@@ -270,7 +282,10 @@ infrastructure. The goal was to let French players who couldn't access the
 international servers discover the game—whether because of the cost,
 the language barrier, or the lag. I wrote the patcher in Blitz Basic for
 Windows—the same language I'd learned on the Amiga—handling downloads
-and updates to the Gravity GRF file. FRO would run for nearly four years,
+and updates to the Gravity GRF file. The login and character servers
+ran on versions I rewrote entirely in PHP — which outperformed the
+original C implementations, since those used a busy loop around
+<code>listen()</code> instead of <code>select()</code>. FRO would run for nearly four years,
 building a community and teaching me as much about managing people as
 about managing servers.</p>
                 </div>
@@ -318,12 +333,23 @@ the rest.</p>
             
             <div class="timeline-item">
                 <div class="timeline-age">APRIL 2005 · AGE 19</div>
-                <div class="timeline-machine">First Trip to Japan <span class="spec">visiting a friend</span></div>
+                <div class="timeline-machine">First Trip to Japan <span class="spec">Tokyo Anime Fair</span></div>
                 <div class="timeline-desc">
-                    <p>Flew to Japan for the first time to visit Méko (Mékolai Chauvet), a
-friend who had created Pinpin Lelapin, Dating Sim, and Studio Tanuki.
-A brief trip, but enough to plant the seed that would eventually pull
-me there for good.</p>
+                    <p>Flew to Japan for the first time with Méko, a friend who had created
+Pinpin Lelapin, Dating Sim, and Studio Tanuki. We were there to
+represent MangaPop at the Tokyo Anime Fair. I stayed in a capsule hotel
+and took hundreds of pictures. A brief trip, but enough to plant the
+seed that would eventually pull me there for good.</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-age">NOV 2005 · AGE 20</div>
+                <div class="timeline-machine">Paris Riots <span class="spec">IRC coordination</span></div>
+                <div class="timeline-desc">
+                    <p>During the 2005 suburb riots, I coordinated transport logistics on IRC
+for people stranded across the city — years before Twitter existed.
+Grassroots civic tech, improvised in real time.</p>
                 </div>
             </div>
             
@@ -389,6 +415,16 @@ stronger.</p>
                 </div>
             </div>
             
+            <div class="timeline-item">
+                <div class="timeline-age">NOV 2007 · AGE 22</div>
+                <div class="timeline-machine">La Sérrée <span class="spec">grandmother Marie</span></div>
+                <div class="timeline-desc">
+                    <p>My grandmother Marie died at 74. We had not spoken since a falling-out
+during my lycée years. She left me her cat — Tibane, who would later
+lend her name (with an extra <em>n</em>) to the company I founded in Tokyo.</p>
+                </div>
+            </div>
+            
         </div>
     </section>
     
@@ -429,8 +465,12 @@ identity. Tibanne would become the vehicle for everything that came next.</p>
 me to Bitcoin because of payment difficulties he was having from abroad.
 I dug in immediately. The concept was extremely well designed—a
 decentralised system where the mechanism itself was the trust layer.
-I contributed to the Bitcoin Wiki, mined coins in the evenings, and
-Tibanne became the first company in Japan to accept Bitcoin payments.</p>
+I created the Bitcoin Wiki — Wikipedia was censoring cryptocurrency
+content at the time, so I set up a dedicated MediaWiki instance that
+became a central resource for the community and still runs today.
+I mined coins in the evenings; one night I earned 50 BTC in a single
+session. Tibanne became the first company in Japan to accept Bitcoin
+payments.</p>
                 </div>
             </div>
             
@@ -476,12 +516,19 @@ to the answer to everything.</p>
                 <div class="timeline-age">2011–2013 · AGE 25–28</div>
                 <div class="timeline-machine">Mt. Gox <span class="spec">growth</span></div>
                 <div class="timeline-desc">
-                    <p>Mt. Gox grew from 3,000 users to become the world's largest Bitcoin
-exchange, handling at its peak around 70% of all Bitcoin transactions
-globally. The Bitcoin price went from roughly a dollar to over a thousand.
+                    <p>Mt. Gox grew from 3,000 users to over a million, becoming the world's
+largest Bitcoin exchange — at its peak handling around 70% of all Bitcoin
+transactions globally. About 60 employees in Japan, another 100 in India.
+The Bitcoin price went from roughly a dollar to over a thousand.
 Coverage in Time, Forbes, and everywhere else. WikiLeaks started accepting
-Bitcoin donations. Three years of building, firefighting, and trying to
-keep up with something that was growing faster than anyone had planned for.</p>
+Bitcoin donations. Tibanne's automated hosting had unknowingly served
+a Silk Road–related site; I was investigated as a possible DPR suspect
+for two years before being cleared. I acquired Shade 3D, a 3D graphics
+company, to diversify beyond the exchange. I was building a Bitcoin
+payment terminal and planning a concept café in Tokyo where customers
+would pay in BTC — the premises were ready when everything collapsed.
+Three years of building, firefighting, and trying to keep up with
+something growing faster than anyone had planned for.</p>
                 </div>
             </div>
             
@@ -536,6 +583,19 @@ apologized. Nobuaki Kobayashi was appointed as bankruptcy trustee by the
 Tokyo District Court. Two weeks later, my lawyers disclosed the existence
 of 200,000 BTC I had stored separately in cold wallets. What followed
 would take a decade to resolve.</p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-age">2014–2015</div>
+                <div class="timeline-machine">Aftermath <span class="spec">death threats · investigation · journalism</span></div>
+                <div class="timeline-desc">
+                    <p>After the bankruptcy, death threats appeared on Twitter: people
+promising to hire someone to end my life. Jake Adelstein, the American
+investigative journalist based in Tokyo, began covering the case. He
+initially suspected I was guilty — but after digging in, concluded
+I was a victim of external hackers. He would later visit me in
+detention, bringing manga and a book on Zen Buddhism.</p>
                 </div>
             </div>
             
