@@ -1,0 +1,19 @@
+nav:
+  - id: index
+    href: index.html
+    label: "$000000 ホーム"
+  - id: mind
+    href: mind.html
+    label: "$040000 思考"
+  - id: timeline
+    href: timeline.html
+    label: "$FC0000 年表"
+
+hero:
+  reg: "Bit 1: <code>LED / low-pass filter</code>"
+  subtitle: >-
+    ワイヤーフレームで考える頭の中の地図——ディジョンの
+    <em>ZX Spectrum</em> からAmigaのメモリマップドハードウェアまで、
+    その間に配線されたすべてのこと。
+
+footer: "BFE001.net · Mark Karpelès"
