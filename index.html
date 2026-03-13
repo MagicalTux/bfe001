@@ -35,7 +35,6 @@
         <h1 class="hero-title">BFE001</h1>
         <div class="hero-reg"><span class="led-indicator"></span>Bit 1: <code>LED / low-pass filter</code></div>
         <p class="hero-subtitle">A personal cartography of a mind that thinks in wireframes—from a <em>ZX Spectrum</em> in Dijon to the Amiga's memory-mapped hardware, and everything that wired itself in between.</p>
-        <div class="scroll-hint">scroll</div>
     </section>
 
 
@@ -120,7 +119,6 @@ registers. Modern systems are far more powerful, but vastly more opaque.
 </div>
 
 
-
 <script>
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -129,27 +127,13 @@ registers. Modern systems are far more powerful, but vastly more opaque.
             }
         });
     }, {
-        threshold: 0.08,
+        threshold: 0.01,
         rootMargin: '0px 0px -40px 0px'
     });
 
-    document.querySelectorAll('section:not(.hero)').forEach(section => {
-        observer.observe(section);
+    document.querySelectorAll('section:not(.hero), .timeline-item').forEach(el => {
+        observer.observe(el);
     });
-</script>
-
-<script>
-    const scrollHint = document.querySelector('.scroll-hint');
-    if (scrollHint) {
-        let hidden = false;
-        window.addEventListener('scroll', () => {
-            if (!hidden && window.scrollY > 100) {
-                scrollHint.style.opacity = '0';
-                scrollHint.style.transition = 'opacity 0.5s';
-                hidden = true;
-            }
-        }, { passive: true });
-    }
 </script>
 
 

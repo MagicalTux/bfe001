@@ -2,6 +2,7 @@
 age: "2016–2017 · AGE 31–32"
 machine: "Rebuilding"
 spec: "from zero"
+section: "After"
 ---
 
 Personal bankruptcy, reputational damage, an ongoing trial — and yet,

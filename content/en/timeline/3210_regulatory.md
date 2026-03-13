@@ -2,6 +2,7 @@
 age: "2012–2013 · AGE 27–28"
 machine: "Regulation"
 spec: "FinCEN · DHS · banking"
+section: "MtGox"
 ---
 
 As Bitcoin went mainstream, regulators scrambled to categorize it.

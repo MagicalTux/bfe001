@@ -2,6 +2,7 @@
 age: "1999 · AGE 14 · 3ÈME"
 machine: "Going Online"
 spec: "AMD K6-II, Windows 98, Wanadoo ADSL"
+section: "Online"
 ---
 
 My mother upgraded from the old 286/Macintosh to an actual modern PC—an

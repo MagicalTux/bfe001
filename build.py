@@ -65,13 +65,28 @@ def split_sections(body):
 
 
 def load_timeline_entries(timeline_dir):
-    """Load timeline entries from individual .md files, sorted by filename."""
-    entries = []
+    """Load timeline entries from individual .md files, sorted by filename.
+    Returns a list of sections, each with a 'name' and 'entries' list.
+    Entries with a 'section' frontmatter field start a new section."""
+    all_entries = []
     for path in sorted(timeline_dir.glob("[0-9]*.md")):
         meta, body = load_markdown_file(path)
         meta["content"] = render_markdown(body)
-        entries.append(meta)
-    return entries
+        all_entries.append(meta)
+
+    # Group into sections
+    sections = []
+    current = {"name": None, "entries": []}
+    for entry in all_entries:
+        if entry.get("section"):
+            if current["entries"]:
+                sections.append(current)
+            current = {"name": entry.pop("section"), "entries": [entry]}
+        else:
+            current["entries"].append(entry)
+    if current["entries"]:
+        sections.append(current)
+    return sections
 
 
 def build_page(env, template_name, context, output_path):
@@ -128,7 +143,7 @@ def build_lang(env, lang, languages):
     # --- Timeline page ---
     timeline_dir = lang_dir / "timeline"
     intro_meta, intro_body = load_markdown_file(timeline_dir / "_intro.md")
-    entries = load_timeline_entries(timeline_dir)
+    timeline_sections = load_timeline_entries(timeline_dir)
     build_page(
         env,
         "timeline.html",
@@ -136,7 +151,7 @@ def build_lang(env, lang, languages):
             **common,
             **intro_meta,
             "intro": render_markdown(intro_body),
-            "entries": entries,
+            "timeline_sections": timeline_sections,
             "active_page": "timeline",
         },
         out_dir / "timeline.html",

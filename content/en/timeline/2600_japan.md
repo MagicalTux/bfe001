@@ -2,6 +2,7 @@
 age: "JUNE 18, 2009 · AGE 24"
 machine: "Japan"
 spec: "Tokyo"
+section: "Tokyo"
 ---
 
 Nexway was acquiring a Japanese company, CoGen Media (later Degica), and

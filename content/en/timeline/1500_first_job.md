@@ -2,6 +2,7 @@
 age: "OCT 2003 · AGE 18"
 machine: "Software Engineer"
 spec: "first salary"
+section: "Early Career"
 ---
 
 First payslip from a small game company, dated October 2003—addressed

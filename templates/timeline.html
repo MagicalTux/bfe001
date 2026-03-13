@@ -9,9 +9,15 @@
         <div class="prose">
             {{ intro }}
         </div>
+    </section>
 
+    {% for section in timeline_sections %}
+    <section>
+        {% if section.name %}
+        <div class="timeline-section-name">{{ section.name }}</div>
+        {% endif %}
         <div class="timeline">
-            {% for entry in entries %}
+            {% for entry in section.entries %}
             <div class="timeline-item{% if entry.active %} active{% endif %}">
                 <div class="timeline-age">{{ entry.age }}</div>
                 <div class="timeline-machine">{{ entry.machine }}{% if entry.spec %} <span class="spec">{{ entry.spec }}</span>{% endif %}</div>
@@ -22,4 +28,5 @@
             {% endfor %}
         </div>
     </section>
+    {% endfor %}
 {% endblock %}

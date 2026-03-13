@@ -45,8 +45,22 @@ a different machine, and each machine taught me a different layer of how computi
 works. By the time I was ten, I'd seen three levels of abstraction without
 realising they had names.</p>
         </div>
+    </section>
 
+    
+    <section>
+        
+        <div class="timeline-section-name">Childhood</div>
+        
         <div class="timeline">
+            
+            <div class="timeline-item">
+                <div class="timeline-age">JUNE 1, 1985</div>
+                <div class="timeline-machine">Born <span class="spec">Chenôve, France</span></div>
+                <div class="timeline-desc">
+                    <p>Born in Chenôve, near Dijon.</p>
+                </div>
+            </div>
             
             <div class="timeline-item">
                 <div class="timeline-age">~1988–1991 · AGE 3–5 · PRE-SCHOOL</div>
@@ -157,6 +171,15 @@ of my work to the infamous click of death).</p>
                 </div>
             </div>
             
+        </div>
+    </section>
+    
+    <section>
+        
+        <div class="timeline-section-name">Online</div>
+        
+        <div class="timeline">
+            
             <div class="timeline-item">
                 <div class="timeline-age">1999 · AGE 14 · 3ÈME</div>
                 <div class="timeline-machine">Going Online <span class="spec">AMD K6-II, Windows 98, Wanadoo ADSL</span></div>
@@ -241,6 +264,15 @@ building a community and teaching me as much about managing people as
 about managing servers.</p>
                 </div>
             </div>
+            
+        </div>
+    </section>
+    
+    <section>
+        
+        <div class="timeline-section-name">Early Career</div>
+        
+        <div class="timeline">
             
             <div class="timeline-item">
                 <div class="timeline-age">OCT 2003 · AGE 18</div>
@@ -356,6 +388,15 @@ became the pseudonym I'd carry into everything that followed.</p>
                 </div>
             </div>
             
+        </div>
+    </section>
+    
+    <section>
+        
+        <div class="timeline-section-name">Tokyo</div>
+        
+        <div class="timeline">
+            
             <div class="timeline-item">
                 <div class="timeline-age">JUNE 18, 2009 · AGE 24</div>
                 <div class="timeline-machine">Japan <span class="spec">Tokyo</span></div>
@@ -443,6 +484,15 @@ keep up with something that was growing faster than anyone had planned for.</p>
                 </div>
             </div>
             
+        </div>
+    </section>
+    
+    <section>
+        
+        <div class="timeline-section-name">MtGox</div>
+        
+        <div class="timeline">
+            
             <div class="timeline-item">
                 <div class="timeline-age">2012–2013 · AGE 27–28</div>
                 <div class="timeline-machine">Regulation <span class="spec">FinCEN · DHS · banking</span></div>
@@ -516,6 +566,15 @@ Conditions: forbidden from contacting approximately 30 people connected
 to Mt. Gox.</p>
                 </div>
             </div>
+            
+        </div>
+    </section>
+    
+    <section>
+        
+        <div class="timeline-section-name">After</div>
+        
+        <div class="timeline">
             
             <div class="timeline-item">
                 <div class="timeline-age">2016–2017 · AGE 31–32</div>
@@ -624,6 +683,7 @@ creditors through designated exchanges. The process that began with
             
         </div>
     </section>
+    
 
 
     <footer>
@@ -643,12 +703,12 @@ creditors through designated exchanges. The process that began with
             }
         });
     }, {
-        threshold: 0.08,
+        threshold: 0.01,
         rootMargin: '0px 0px -40px 0px'
     });
 
-    document.querySelectorAll('section:not(.hero)').forEach(section => {
-        observer.observe(section);
+    document.querySelectorAll('section:not(.hero), .timeline-item').forEach(el => {
+        observer.observe(el);
     });
 </script>
 
