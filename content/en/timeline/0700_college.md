@@ -11,8 +11,10 @@ A chartered bus would leave from Place de la Nation in Paris every Monday
 and bring us back on Fridays. Weekends in Paris meant entire days immersed
 in the machine.
 I upgraded from the 500 to an Amiga 2000 and took it with me to Paris.
-Blitz Basic 2 let me inline assembly directly in BASIC code—a
-massive leap from POKEing bytecodes on the Spectrum. I coded an Arkanoid clone
+Blitz Basic 2 was a major tool on the Amiga—it let me inline assembly
+directly in BASIC code, a massive leap from POKEing bytecodes on the Spectrum.
+The language would later evolve into a game engine on Windows, famously powering
+SCP: Containment Breach (2012). I coded an Arkanoid clone
 and explored hardware capabilities: toggling the LED and audio filter via
 `$BFE001`, understanding how MOD music kept playing while the
 CPU did other work (DMA and the Paula chip), exploring the ROM mapped at
