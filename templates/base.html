@@ -17,8 +17,6 @@
 
 <div class="content">
 
-    {% block before_nav %}{% endblock %}
-
     <nav class="site-nav">
         {% for item in strings.nav %}
         <a href="{{ item.href }}"{% if item.id == active_page %} class="active"{% endif %}>{{ item.label }}</a>
@@ -32,6 +30,8 @@
         {% endfor %}
         {% endif %}
     </nav>
+
+    {% block after_nav %}{% endblock %}
 
     {% block content %}{% endblock %}
 
