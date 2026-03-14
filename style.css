@@ -1,3 +1,19 @@
+@font-face {
+    font-family: 'Topaz';
+    src: url('fonts/topaz_unicode_ks13_regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Topaz';
+    src: url('fonts/topaz_unicode_ks13_bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
 :root {
     --amber: #f0a500;
     --amber-dim: #c48800;
@@ -351,6 +367,238 @@ section.visible {
 }
 
 /* ═══════════════════════════════════════════
+   CHIP DIAGRAM
+   ═══════════════════════════════════════════ */
+.chip-diagram {
+    margin: 32px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+}
+
+.chip-bus {
+    width: 80%;
+    max-width: 560px;
+    height: 2px;
+    background: var(--border-light);
+    position: relative;
+    margin: 0;
+}
+
+.chip-bus::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: -12px;
+    width: 2px;
+    height: 12px;
+    background: var(--border-light);
+}
+
+.chip-bus.no-top::before {
+    display: none;
+}
+
+.chip-row {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+    padding-top: 12px;
+}
+
+.chip-row .chip-stem {
+    position: absolute;
+    top: 0;
+    width: 2px;
+    height: 12px;
+    background: var(--border-light);
+}
+
+.chip-box {
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    padding: 14px 20px;
+    min-width: 160px;
+    border-radius: 3px;
+    position: relative;
+}
+
+.chip-box.chip-highlight {
+    border-color: var(--amber-dim);
+    box-shadow: 0 0 12px rgba(240, 165, 0, 0.08);
+}
+
+.chip-name {
+    font-family: 'Topaz', 'IBM Plex Mono', monospace;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--green-term);
+    margin-bottom: 6px;
+}
+
+.chip-box.chip-highlight .chip-name {
+    color: var(--amber);
+}
+
+.chip-detail {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--text-dim);
+    line-height: 1.5;
+}
+
+.chip-addr {
+    font-family: 'Topaz', 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--amber-dim);
+    margin-bottom: 4px;
+}
+
+/* ═══════════════════════════════════════════
+   ADDRESS MAP
+   ═══════════════════════════════════════════ */
+.addr-map {
+    margin: 32px 0;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+.addr-row {
+    display: flex;
+    border-bottom: 1px solid var(--border);
+}
+
+.addr-row:last-child {
+    border-bottom: none;
+}
+
+.addr-row.addr-highlight {
+    background: rgba(240, 165, 0, 0.05);
+}
+
+.addr-label {
+    font-family: 'Topaz', 'IBM Plex Mono', monospace;
+    flex-shrink: 0;
+    width: 90px;
+    padding: 10px 12px;
+    font-size: 13px;
+    color: var(--amber-bright);
+    background: var(--bg-card);
+    border-right: 1px solid var(--border);
+    display: flex;
+    align-items: flex-start;
+}
+
+.addr-body {
+    flex: 1;
+    padding: 10px 16px;
+}
+
+.addr-name {
+    font-size: 14px;
+    color: var(--green-term);
+    font-weight: 500;
+}
+
+.addr-row.addr-highlight .addr-name {
+    color: var(--amber);
+}
+
+.addr-size {
+    font-size: 12px;
+    color: var(--text-dim);
+}
+
+.addr-comment {
+    font-size: 12px;
+    color: var(--text-dim);
+    font-style: italic;
+}
+
+/* ═══════════════════════════════════════════
+   BIT TABLE
+   ═══════════════════════════════════════════ */
+.bit-table {
+    margin: 32px 0;
+    font-family: 'IBM Plex Mono', monospace;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--amber-dim);
+    border-radius: 0 4px 4px 0;
+    overflow: hidden;
+}
+
+.bit-table .bit-header {
+    display: flex;
+    padding: 8px 16px;
+    font-size: 12px;
+    color: var(--amber);
+    font-weight: 600;
+    border-bottom: 1px solid var(--border-light);
+    background: var(--bg-surface);
+}
+
+.bit-row {
+    display: flex;
+    padding: 6px 16px;
+    font-size: 13px;
+    border-bottom: 1px solid var(--border);
+}
+
+.bit-row:last-child {
+    border-bottom: none;
+}
+
+.bit-row.bit-highlight {
+    background: rgba(240, 165, 0, 0.06);
+}
+
+.bit-num {
+    font-family: 'Topaz', 'IBM Plex Mono', monospace;
+    width: 36px;
+    color: var(--amber-bright);
+    flex-shrink: 0;
+    text-align: center;
+}
+
+.bit-dir {
+    width: 40px;
+    color: var(--green-term);
+    flex-shrink: 0;
+}
+
+.bit-row.bit-highlight .bit-dir {
+    color: var(--amber);
+}
+
+.bit-name {
+    font-family: 'Topaz', 'IBM Plex Mono', monospace;
+    width: 72px;
+    color: var(--amber-bright);
+    flex-shrink: 0;
+    font-weight: 500;
+}
+
+.bit-row.bit-highlight .bit-name {
+    color: var(--amber);
+}
+
+.bit-func {
+    color: var(--text-dim);
+    flex: 1;
+}
+
+.bit-row.bit-highlight .bit-func {
+    color: var(--amber);
+    font-weight: 500;
+}
+
+/* ═══════════════════════════════════════════
    MACHINE TIMELINE
    ═══════════════════════════════════════════ */
 .timeline {
@@ -604,6 +852,7 @@ section.visible {
 }
 
 .register-block .reg-field {
+    font-family: 'Topaz', 'IBM Plex Mono', monospace;
     color: var(--text-dim);
     min-width: 100px;
 }
@@ -682,6 +931,18 @@ footer .led-indicator {
     .timeline { padding-left: 24px; }
 
     .mem-block { padding: 16px; font-size: 13px; }
+
+    .chip-box { min-width: 130px; padding: 10px 14px; }
+    .chip-name { font-size: 13px; }
+    .chip-detail { font-size: 11px; }
+    .chip-row { gap: 8px; }
+
+    .addr-label { width: 76px; font-size: 11px; padding: 8px; }
+    .addr-body { padding: 8px 12px; }
+    .addr-name { font-size: 13px; }
+
+    .bit-row { flex-wrap: wrap; gap: 4px; }
+    .bit-func { width: 100%; padding-left: 76px; }
 
     .site-nav { gap: 16px; }
 }

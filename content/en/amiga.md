@@ -9,35 +9,62 @@ The Amiga's power came from its custom chipset — three specialized chips
 that handled graphics, sound, and DMA independently of the CPU. While the
 Motorola 68000 ran your code, the custom chips ran the machine.
 
-<div class="mem-block">
-<span class="label">AMIGA_CHIPSET</span> <span class="comment">; OCS / ECS block diagram</span>
-
-                  <span class="keyword">┌──────────────────────────┐</span>
-                  <span class="keyword">│</span>    <span class="val">Motorola 68000</span>         <span class="keyword">│</span>
-                  <span class="keyword">│</span>    <span class="dim">16-bit data bus</span>         <span class="keyword">│</span>
-                  <span class="keyword">│</span>    <span class="dim">24-bit address bus</span>      <span class="keyword">│</span>
-                  <span class="keyword">└──────────┬───────────────┘</span>
-                             <span class="dim">│</span>
-          <span class="dim">═══════════════════╪════════════════════════</span>
-          <span class="dim">│                   │                      │</span>
-  <span class="keyword">┌───────┴───────┐</span>  <span class="keyword">┌──┴──────────┐</span>  <span class="keyword">┌──────┴───────┐</span>
-  <span class="keyword">│</span> <span class="val">AGNUS</span>         <span class="keyword">│</span>  <span class="keyword">│</span> <span class="val">DENISE</span>      <span class="keyword">│</span>  <span class="keyword">│</span> <span class="val">PAULA</span>        <span class="keyword">│</span>
-  <span class="keyword">│</span> <span class="dim">DMA controller</span><span class="keyword">│</span>  <span class="keyword">│</span> <span class="dim">Video output</span><span class="keyword">│</span>  <span class="keyword">│</span> <span class="dim">4-ch audio</span>   <span class="keyword">│</span>
-  <span class="keyword">│</span> <span class="dim">Copper</span>        <span class="keyword">│</span>  <span class="keyword">│</span> <span class="dim">Bitplanes</span>   <span class="keyword">│</span>  <span class="keyword">│</span> <span class="dim">Disk I/O</span>     <span class="keyword">│</span>
-  <span class="keyword">│</span> <span class="dim">Blitter</span>       <span class="keyword">│</span>  <span class="keyword">│</span> <span class="dim">Sprites</span>     <span class="keyword">│</span>  <span class="keyword">│</span> <span class="dim">Serial I/O</span>   <span class="keyword">│</span>
-  <span class="keyword">│</span> <span class="dim">Beam counter</span>  <span class="keyword">│</span>  <span class="keyword">│</span> <span class="dim">Collision</span>   <span class="keyword">│</span>  <span class="keyword">│</span> <span class="dim">Interrupts</span>   <span class="keyword">│</span>
-  <span class="keyword">└───────────────┘</span>  <span class="keyword">└─────────────┘</span>  <span class="keyword">└──────────────┘</span>
-
-          <span class="dim">═══════════════════════════════════════════</span>
-          <span class="dim">│                                         │</span>
-  <span class="keyword">┌───────┴───────┐</span>                  <span class="keyword">┌────────┴──────┐</span>
-  <span class="keyword">│</span> <span class="val">CIA-A</span>         <span class="keyword">│</span>                  <span class="keyword">│</span> <span class="val">CIA-B</span>          <span class="keyword">│</span>
-  <span class="keyword">│</span> <span class="dim">$BFE001</span>       <span class="keyword">│</span>                  <span class="keyword">│</span> <span class="dim">$BFD000</span>        <span class="keyword">│</span>
-  <span class="keyword">│</span> <span class="dim">Keyboard</span>      <span class="keyword">│</span>                  <span class="keyword">│</span> <span class="dim">Parallel port</span>  <span class="keyword">│</span>
-  <span class="keyword">│</span> <span class="dim">Game ports</span>    <span class="keyword">│</span>                  <span class="keyword">│</span> <span class="dim">Disk control</span>   <span class="keyword">│</span>
-  <span class="keyword">│</span> <span class="dim">LED / Filter</span>  <span class="keyword">│</span>                  <span class="keyword">│</span> <span class="dim">Serial ctrl</span>    <span class="keyword">│</span>
-  <span class="keyword">│</span> <span class="dim">Timers A/B</span>    <span class="keyword">│</span>                  <span class="keyword">│</span> <span class="dim">Timers C/D</span>     <span class="keyword">│</span>
-  <span class="keyword">└───────────────┘</span>                  <span class="keyword">└───────────────┘</span>
+<div class="chip-diagram">
+    <div class="chip-row" style="padding-top:0">
+        <div class="chip-box">
+            <div class="chip-name">Motorola 68000</div>
+            <div class="chip-detail">16-bit data bus</div>
+            <div class="chip-detail">24-bit address bus</div>
+        </div>
+    </div>
+    <div class="chip-bus"></div>
+    <div class="chip-row">
+        <span class="chip-stem" style="left:16%"></span>
+        <span class="chip-stem" style="left:50%"></span>
+        <span class="chip-stem" style="left:84%"></span>
+        <div class="chip-box">
+            <div class="chip-name">AGNUS</div>
+            <div class="chip-detail">DMA controller</div>
+            <div class="chip-detail">Copper</div>
+            <div class="chip-detail">Blitter</div>
+            <div class="chip-detail">Beam counter</div>
+        </div>
+        <div class="chip-box">
+            <div class="chip-name">DENISE</div>
+            <div class="chip-detail">Video output</div>
+            <div class="chip-detail">Bitplanes</div>
+            <div class="chip-detail">Sprites</div>
+            <div class="chip-detail">Collision</div>
+        </div>
+        <div class="chip-box">
+            <div class="chip-name">PAULA</div>
+            <div class="chip-detail">4-ch audio</div>
+            <div class="chip-detail">Disk I/O</div>
+            <div class="chip-detail">Serial I/O</div>
+            <div class="chip-detail">Interrupts</div>
+        </div>
+    </div>
+    <div class="chip-bus no-top"></div>
+    <div class="chip-row">
+        <span class="chip-stem" style="left:25%"></span>
+        <span class="chip-stem" style="left:75%"></span>
+        <div class="chip-box chip-highlight">
+            <div class="chip-addr">$BFE001</div>
+            <div class="chip-name">CIA-A</div>
+            <div class="chip-detail">Keyboard</div>
+            <div class="chip-detail">Game ports</div>
+            <div class="chip-detail">LED / Filter</div>
+            <div class="chip-detail">Timers A/B</div>
+        </div>
+        <div class="chip-box">
+            <div class="chip-addr">$BFD000</div>
+            <div class="chip-name">CIA-B</div>
+            <div class="chip-detail">Parallel port</div>
+            <div class="chip-detail">Disk control</div>
+            <div class="chip-detail">Serial ctrl</div>
+            <div class="chip-detail">Timers C/D</div>
+        </div>
+    </div>
 </div>
 
 **Agnus** (later Fat Agnus, then Alice) was the brain of the custom chipset.
@@ -72,45 +99,79 @@ hardware had its place. Writing to a memory address could store data, draw
 graphics, play a sound, or toggle the power LED — depending on where
 in the map you were writing.
 
-<div class="mem-block">
-<span class="label">MEMORY_MAP</span> <span class="comment">; 68000 24-bit address space (16 MB)</span>
-
-  <span class="keyword">$000000</span>  <span class="val">┌──────────────────────────────────────┐</span>
-           <span class="val">│</span>  <span class="val">Chip RAM</span>                            <span class="val">│</span>
-           <span class="val">│</span>  <span class="dim">up to 2 MB</span>                          <span class="val">│</span>
-           <span class="val">│</span>  <span class="comment">; shared between CPU and custom chips</span><span class="val">│</span>
-           <span class="val">│</span>  <span class="comment">; graphics, audio, disk data live here</span><span class="val">│</span>
-  <span class="keyword">$200000</span>  <span class="val">├──────────────────────────────────────┤</span>
-           <span class="val">│</span>  <span class="val">Fast RAM / Zorro II</span>                 <span class="val">│</span>
-           <span class="val">│</span>  <span class="dim">up to 8 MB</span>                          <span class="val">│</span>
-           <span class="val">│</span>  <span class="comment">; CPU-only, no DMA contention</span>       <span class="val">│</span>
-  <span class="keyword">$A00000</span>  <span class="val">├──────────────────────────────────────┤</span>
-           <span class="val">│</span>  <span class="dim">Reserved</span>                             <span class="val">│</span>
-  <span class="keyword">$BFD000</span>  <span class="val">├──────────────────────────────────────┤</span>
-           <span class="val">│</span>  <span class="val">CIA-B registers</span>                     <span class="val">│</span>
-           <span class="val">│</span>  <span class="comment">; parallel, disk, serial control</span>    <span class="val">│</span>
-  <span class="keyword">$BFE001</span>  <span class="val">├──────────────────────────────────────┤</span>
-           <span class="val">│</span>  <span class="highlight">CIA-A registers ★</span>                   <span class="val">│</span>
-           <span class="val">│</span>  <span class="comment">; keyboard, LED, filter, game ports</span> <span class="val">│</span>
-  <span class="keyword">$C00000</span>  <span class="val">├──────────────────────────────────────┤</span>
-           <span class="val">│</span>  <span class="val">Slow RAM</span> <span class="dim">(A500 trapdoor)</span>            <span class="val">│</span>
-           <span class="val">│</span>  <span class="dim">512 KB</span>                              <span class="val">│</span>
-           <span class="val">│</span>  <span class="comment">; shares bus but no DMA access</span>      <span class="val">│</span>
-  <span class="keyword">$D00000</span>  <span class="val">├──────────────────────────────────────┤</span>
-           <span class="val">│</span>  <span class="dim">Reserved / Expansion</span>                <span class="val">│</span>
-  <span class="keyword">$DFF000</span>  <span class="val">├──────────────────────────────────────┤</span>
-           <span class="val">│</span>  <span class="val">Custom Chip Registers</span>               <span class="val">│</span>
-           <span class="val">│</span>  <span class="dim">~256 registers</span>                      <span class="val">│</span>
-           <span class="val">│</span>  <span class="comment">; Agnus, Denise, Paula</span>              <span class="val">│</span>
-           <span class="val">│</span>  <span class="comment">; bitplanes, sprites, colors, DMA</span>  <span class="val">│</span>
-  <span class="keyword">$E80000</span>  <span class="val">├──────────────────────────────────────┤</span>
-           <span class="val">│</span>  <span class="dim">Autoconfig / Zorro II ID</span>            <span class="val">│</span>
-  <span class="keyword">$F80000</span>  <span class="val">├──────────────────────────────────────┤</span>
-           <span class="val">│</span>  <span class="val">Kickstart ROM</span>                       <span class="val">│</span>
-           <span class="val">│</span>  <span class="dim">256–512 KB</span>                          <span class="val">│</span>
-           <span class="val">│</span>  <span class="comment">; exec.library, intuition, graphics</span><span class="val">│</span>
-           <span class="val">│</span>  <span class="comment">; the entire Amiga OS kernel</span>       <span class="val">│</span>
-  <span class="keyword">$FFFFFF</span>  <span class="val">└──────────────────────────────────────┘</span>
+<div class="addr-map">
+    <div class="addr-row">
+        <span class="addr-label">$000000</span>
+        <div class="addr-body">
+            <div class="addr-name">Chip RAM</div>
+            <div class="addr-size">up to 2 MB</div>
+            <div class="addr-comment">shared between CPU and custom chips; graphics, audio, disk data live here</div>
+        </div>
+    </div>
+    <div class="addr-row">
+        <span class="addr-label">$200000</span>
+        <div class="addr-body">
+            <div class="addr-name">Fast RAM / Zorro II</div>
+            <div class="addr-size">up to 8 MB</div>
+            <div class="addr-comment">CPU-only, no DMA contention</div>
+        </div>
+    </div>
+    <div class="addr-row">
+        <span class="addr-label">$A00000</span>
+        <div class="addr-body">
+            <div class="addr-name addr-size">Reserved</div>
+        </div>
+    </div>
+    <div class="addr-row">
+        <span class="addr-label">$BFD000</span>
+        <div class="addr-body">
+            <div class="addr-name">CIA-B registers</div>
+            <div class="addr-comment">parallel, disk, serial control</div>
+        </div>
+    </div>
+    <div class="addr-row addr-highlight">
+        <span class="addr-label">$BFE001</span>
+        <div class="addr-body">
+            <div class="addr-name">CIA-A registers ★</div>
+            <div class="addr-comment">keyboard, LED, filter, game ports</div>
+        </div>
+    </div>
+    <div class="addr-row">
+        <span class="addr-label">$C00000</span>
+        <div class="addr-body">
+            <div class="addr-name">Slow RAM</div>
+            <div class="addr-size">512 KB (A500 trapdoor)</div>
+            <div class="addr-comment">shares bus but no DMA access</div>
+        </div>
+    </div>
+    <div class="addr-row">
+        <span class="addr-label">$D00000</span>
+        <div class="addr-body">
+            <div class="addr-name addr-size">Reserved / Expansion</div>
+        </div>
+    </div>
+    <div class="addr-row">
+        <span class="addr-label">$DFF000</span>
+        <div class="addr-body">
+            <div class="addr-name">Custom Chip Registers</div>
+            <div class="addr-size">~256 registers</div>
+            <div class="addr-comment">Agnus, Denise, Paula — bitplanes, sprites, colors, DMA</div>
+        </div>
+    </div>
+    <div class="addr-row">
+        <span class="addr-label">$E80000</span>
+        <div class="addr-body">
+            <div class="addr-name addr-size">Autoconfig / Zorro II ID</div>
+        </div>
+    </div>
+    <div class="addr-row">
+        <span class="addr-label">$F80000</span>
+        <div class="addr-body">
+            <div class="addr-name">Kickstart ROM</div>
+            <div class="addr-size">256–512 KB</div>
+            <div class="addr-comment">exec.library, intuition, graphics — the entire Amiga OS kernel</div>
+        </div>
+    </div>
 </div>
 
 At power-on, the overlay bit in CIA-A maps the ROM at address `$000000` so
@@ -126,18 +187,61 @@ The register this site is named after. CIA-A sits at odd addresses starting
 from `$BFE001` (the two CIAs use odd/even address decoding to share the
 same region without conflicts).
 
-<div class="mem-block">
-<span class="label">$BFE001 — PRA</span> <span class="comment">; Port Register A — bit-by-bit</span>
-
-  <span class="dim">Bit</span>  <span class="dim">Dir</span>  <span class="dim">Name</span>     <span class="dim">Function</span>
-  <span class="keyword"> 7 </span>  <span class="val">IN </span>  <span class="keyword">/FIR1</span>    <span class="comment">Game port 1 fire button (active low)</span>
-  <span class="keyword"> 6 </span>  <span class="val">IN </span>  <span class="keyword">/FIR0</span>    <span class="comment">Game port 0 fire button (active low)</span>
-  <span class="keyword"> 5 </span>  <span class="val">IN </span>  <span class="keyword">/RDY</span>     <span class="comment">Disk ready (active low)</span>
-  <span class="keyword"> 4 </span>  <span class="val">IN </span>  <span class="keyword">/TK0</span>     <span class="comment">Disk track zero (active low)</span>
-  <span class="keyword"> 3 </span>  <span class="val">IN </span>  <span class="keyword">/WPRO</span>    <span class="comment">Disk write protect (active low)</span>
-  <span class="keyword"> 2 </span>  <span class="val">IN </span>  <span class="keyword">/CHNG</span>    <span class="comment">Disk change (active low)</span>
-  <span class="keyword"> 1 </span>  <span class="highlight">OUT</span>  <span class="highlight">LED</span>      <span class="highlight">Power LED / audio low-pass filter</span>
-  <span class="keyword"> 0 </span>  <span class="val">OUT</span>  <span class="keyword">OVL</span>      <span class="comment">Overlay — 1: ROM at $000000, 0: RAM</span>
+<div class="bit-table">
+    <div class="bit-header">
+        <span class="bit-num">Bit</span>
+        <span class="bit-dir">Dir</span>
+        <span class="bit-name">Name</span>
+        <span class="bit-func">$BFE001 — PRA — Port Register A</span>
+    </div>
+    <div class="bit-row">
+        <span class="bit-num">7</span>
+        <span class="bit-dir">IN</span>
+        <span class="bit-name">/FIR1</span>
+        <span class="bit-func">Game port 1 fire button (active low)</span>
+    </div>
+    <div class="bit-row">
+        <span class="bit-num">6</span>
+        <span class="bit-dir">IN</span>
+        <span class="bit-name">/FIR0</span>
+        <span class="bit-func">Game port 0 fire button (active low)</span>
+    </div>
+    <div class="bit-row">
+        <span class="bit-num">5</span>
+        <span class="bit-dir">IN</span>
+        <span class="bit-name">/RDY</span>
+        <span class="bit-func">Disk ready (active low)</span>
+    </div>
+    <div class="bit-row">
+        <span class="bit-num">4</span>
+        <span class="bit-dir">IN</span>
+        <span class="bit-name">/TK0</span>
+        <span class="bit-func">Disk track zero (active low)</span>
+    </div>
+    <div class="bit-row">
+        <span class="bit-num">3</span>
+        <span class="bit-dir">IN</span>
+        <span class="bit-name">/WPRO</span>
+        <span class="bit-func">Disk write protect (active low)</span>
+    </div>
+    <div class="bit-row">
+        <span class="bit-num">2</span>
+        <span class="bit-dir">IN</span>
+        <span class="bit-name">/CHNG</span>
+        <span class="bit-func">Disk change (active low)</span>
+    </div>
+    <div class="bit-row bit-highlight">
+        <span class="bit-num">1</span>
+        <span class="bit-dir">OUT</span>
+        <span class="bit-name">LED</span>
+        <span class="bit-func">Power LED / audio low-pass filter</span>
+    </div>
+    <div class="bit-row">
+        <span class="bit-num">0</span>
+        <span class="bit-dir">OUT</span>
+        <span class="bit-name">OVL</span>
+        <span class="bit-func">Overlay — 1: ROM at $000000, 0: RAM</span>
+    </div>
 </div>
 
 Bit 1 is the star. Setting it low turns on the power LED and engages the

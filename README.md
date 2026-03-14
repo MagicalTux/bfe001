@@ -10,4 +10,8 @@ A personal cartography of a mind that thinks in wireframes — from a ZX Spectru
 
 ## Tech
 
-Static HTML/CSS/JS, hosted on GitHub Pages. No build step.
+Static site built with Python (Markdown + Jinja2 + PyYAML), deployed via GitHub Actions to GitHub Pages.
+
+## Fonts
+
+The [Topaz Unicode](https://gitlab.com/Screwtapello/topaz-unicode) font by Screwtapello is included under `fonts/` and used for hardware register and address displays. Released under the ISC licence — see `fonts/LICENSE`.
