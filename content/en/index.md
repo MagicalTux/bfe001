@@ -11,14 +11,6 @@ CPU down to transistors, from door handle mechanisms to distributed software
 architectures. Understanding the mechanism is the reward. Once a system becomes
 predictable, my brain moves on to the next unknown.
 
-This site is named after `$BFE001`, a hardware register on the
-Amiga's CIA 8520 chip. Writing bit 1 of that address toggled the
-power LED and the audio low-pass filter. Some games used it to simulate the
-muffled sound of passing through a tunnel. Of all the things I coded on the
-Amiga, that single instruction—`MOVE.b #$02,$BFE001`—stuck
-with me across decades. It felt like reaching into the machine and changing
-its physical state with a line of code.
-
 That feeling—of seeing inside a system, understanding its structure,
 and knowing exactly which wire to pull—is how I've experienced the world
 for as long as I can remember.
