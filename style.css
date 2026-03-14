@@ -516,6 +516,13 @@ section.visible {
     box-shadow: 0 0 20px rgba(240, 165, 0, 0.35), inset 0 0 8px rgba(240, 165, 0, 0.08);
 }
 
+.pcb-chip.connected,
+.pcb-conn.connected,
+.pcb-ram.connected {
+    border-color: rgba(240, 165, 0, 0.4);
+    box-shadow: 0 0 6px rgba(240, 165, 0, 0.1);
+}
+
 .pcb-chip-label {
     font-family: 'Topaz', 'IBM Plex Mono', monospace;
     font-size: 9px;

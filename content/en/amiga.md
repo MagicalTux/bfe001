@@ -19,33 +19,8 @@ Motorola 68000 ran your code, the custom chips ran the machine.
     <div class="pcb-silk" style="top:4%;left:4%;font-size:11px;color:rgba(220,210,180,0.25)">COMMODORE</div>
     <div class="pcb-silk" style="top:12%;left:4%;font-size:14px;color:rgba(220,210,180,0.3)">AMIGA A500</div>
     <div class="pcb-silk" style="top:4%;right:4%;font-size:9px">REV 6A · 1987</div>
-    <!-- Bus traces (SVG) -->
-    <svg class="pcb-traces" viewBox="0 0 1000 500" preserveAspectRatio="none">
-        <!-- CPU ↔ Gary address/data bus -->
-        <line x1="570" y1="260" x2="520" y2="260" data-bus="cpu"/>
-        <!-- Gary ↔ Agnus -->
-        <line x1="440" y1="250" x2="380" y2="250" data-bus="agnus"/>
-        <!-- Gary ↔ ROM -->
-        <line x1="440" y1="230" x2="280" y2="170" data-bus="rom"/>
-        <!-- Agnus ↔ Denise -->
-        <line x1="350" y1="300" x2="440" y2="330" data-bus="denise"/>
-        <!-- Agnus ↔ Paula -->
-        <line x1="350" y1="300" x2="440" y2="390" data-bus="paula"/>
-        <!-- Agnus ↔ RAM (DMA) -->
-        <line x1="280" y1="260" x2="180" y2="300" data-bus="ram"/>
-        <!-- Gary ↔ CIA-A -->
-        <line x1="520" y1="230" x2="720" y2="170" data-bus="cia-a"/>
-        <!-- Gary ↔ CIA-B -->
-        <line x1="520" y1="260" x2="720" y2="290" data-bus="cia-b"/>
-        <!-- CIA-A → keyboard -->
-        <line x1="750" y1="145" x2="750" y2="50" data-bus="cia-a"/>
-        <!-- Paula → floppy -->
-        <line x1="440" y1="400" x2="40" y2="270" data-bus="floppy"/>
-        <!-- Denise → video -->
-        <line x1="500" y1="330" x2="920" y2="380" data-bus="video"/>
-        <!-- Paula → audio -->
-        <line x1="500" y1="400" x2="920" y2="430" data-bus="audio"/>
-    </svg>
+    <!-- Bus traces — generated dynamically by JS -->
+    <svg class="pcb-traces" viewBox="0 0 100 100" preserveAspectRatio="none"></svg>
     <!-- Chips -->
     <div class="pcb-chip" data-id="cpu" style="left:57%;top:22%;width:6%;height:32%">
         <span class="pcb-notch"></span>
@@ -137,15 +112,15 @@ Motorola 68000 ran your code, the custom chips ran the machine.
 <script>
 (function() {
     var chips = {
-        'cpu':    { name:'Motorola 68000', addr:'CPU · 7.09 MHz', desc:'16/32-bit CPU with 24-bit address bus (16 MB). Runs your code while the custom chips handle everything else. DIP-64 package.', bus:['cpu'] },
-        'agnus':  { name:'Agnus (8375)', addr:'$DFF000', desc:'DMA controller, Copper coprocessor, and Blitter engine. Controls all chip RAM access and schedules DMA cycles. PLCC-84 package.', bus:['agnus','ram'] },
-        'gary':   { name:'Gary (5719)', addr:'Address Decoder', desc:'Routes CPU access to the correct chip \u2014 chip RAM, fast RAM, ROM, CIAs, or custom registers. The silent traffic cop.', bus:['cpu','agnus','rom','cia-a','cia-b'] },
-        'denise': { name:'Denise (8362)', addr:'$DFF000 (shared)', desc:'Video output: up to 6 bitplanes, 8 hardware sprites, collision detection, 32-color palette with HAM mode for 4096 colors.', bus:['denise'] },
-        'paula':  { name:'Paula (8364)', addr:'$DFF000 (shared)', desc:'4-channel 8-bit audio with DMA, floppy disk controller, serial port, and interrupt management. The music plays itself.', bus:['paula','floppy','audio'] },
-        'cia-a':  { name:'CIA-A (8520)', addr:'$BFE001 \u2605', desc:'Keyboard serial input, game port fire buttons, power LED (bit 1), audio low-pass filter toggle, overlay bit, two 16-bit timers.', bus:['cia-a'] },
-        'cia-b':  { name:'CIA-B (8520)', addr:'$BFD000', desc:'Parallel port data, floppy disk control (motor, direction, side, step), serial handshaking, two 16-bit timers.', bus:['cia-b'] },
-        'rom':    { name:'Kickstart ROM', addr:'$F80000', desc:'Contains exec.library, intuition, graphics \u2014 the entire AmigaOS kernel. 256 KB (v1.3). Mapped to $000000 at power-on via overlay bit.', bus:['rom'] },
-        'ram':    { name:'Chip RAM', addr:'$000000', desc:'512 KB stock (16 \u00d7 256Kbit DRAM). Shared between CPU and custom chips \u2014 graphics, audio, and disk data must live here.', bus:['ram'] },
+        'cpu':    { name:'Motorola 68000', addr:'CPU · 7.09 MHz', desc:'16/32-bit CPU with 24-bit address bus (16 MB). Runs your code while the custom chips handle everything else. DIP-64 package.' },
+        'agnus':  { name:'Agnus (8375)', addr:'$DFF000', desc:'DMA controller, Copper coprocessor, and Blitter engine. Controls all chip RAM access and schedules DMA cycles. PLCC-84 package.' },
+        'gary':   { name:'Gary (5719)', addr:'Address Decoder', desc:'Routes CPU access to the correct chip \u2014 chip RAM, fast RAM, ROM, CIAs, or custom registers. The silent traffic cop.' },
+        'denise': { name:'Denise (8362)', addr:'$DFF000 (shared)', desc:'Video output: up to 6 bitplanes, 8 hardware sprites, collision detection, 32-color palette with HAM mode for 4096 colors.' },
+        'paula':  { name:'Paula (8364)', addr:'$DFF000 (shared)', desc:'4-channel 8-bit audio with DMA, floppy disk controller, serial port, and interrupt management. The music plays itself.' },
+        'cia-a':  { name:'CIA-A (8520)', addr:'$BFE001 \u2605', desc:'Keyboard serial input, game port fire buttons, power LED (bit 1), audio low-pass filter toggle, overlay bit, two 16-bit timers.' },
+        'cia-b':  { name:'CIA-B (8520)', addr:'$BFD000', desc:'Parallel port data, floppy disk control (motor, direction, side, step), serial handshaking, two 16-bit timers.' },
+        'rom':    { name:'Kickstart ROM', addr:'$F80000', desc:'Contains exec.library, intuition, graphics \u2014 the entire AmigaOS kernel. 256 KB (v1.3). Mapped to $000000 at power-on via overlay bit.' },
+        'ram':    { name:'Chip RAM', addr:'$000000', desc:'512 KB stock (16 \u00d7 256Kbit DRAM). Shared between CPU and custom chips \u2014 graphics, audio, and disk data must live here.' },
         'kbd':    { name:'Keyboard', addr:'CIA-A serial', desc:'34-pin ribbon to integrated keyboard. CIA-A reads keycodes via serial protocol with handshake. Own 6500/1 microcontroller.' },
         'floppy': { name:'Floppy Drive', addr:'Paula + CIA-B', desc:'Internal 3.5" 880 KB DD drive. Paula handles disk DMA; CIA-B controls motor, direction, side select, and step signals.' },
         'power':  { name:'Power Input', addr:'5V / 12V DC', desc:'External power brick. The A500 draws about 10W idle. No internal PSU \u2014 just a simple DC-in connector.' },
@@ -157,15 +132,65 @@ Motorola 68000 ran your code, the custom chips ran the machine.
         'audio':  { name:'Audio L/R', addr:'Paula DMA', desc:'Stereo RCA. Channels 0+3 = left, 1+2 = right. 8-bit DMA-driven from chip RAM. Hardware low-pass filter toggled via CIA-A bit 1.' },
         'exp':    { name:'Expansion Slot', addr:'CPU bus', desc:'86-pin side expansion + trapdoor slow RAM slot. Provides full CPU bus access for accelerators, RAM cards, and peripherals.' }
     };
+
+    /* Connections: [from-id, to-id, bus-tag] */
+    var wires = [
+        ['gary','cpu','cpu'], ['gary','agnus','agnus'], ['gary','rom','rom'],
+        ['gary','cia-a','cia-a'], ['gary','cia-b','cia-b'],
+        ['agnus','denise','denise'], ['agnus','paula','paula'], ['agnus','ram','ram'],
+        ['cia-a','kbd','cia-a'], ['paula','floppy','floppy'],
+        ['denise','video','video'], ['paula','audio','audio'],
+        ['cia-a','joy0','cia-a'], ['cia-a','joy1','cia-a'],
+        ['cia-b','serial','cia-b'], ['cia-b','parallel','cia-b']
+    ];
+
     var board = document.getElementById('pcb-board');
+    var svg = board.querySelector('.pcb-traces');
     var infoEl = document.getElementById('pcb-info');
     var hintEl = document.getElementById('pcb-hint');
     var nameEl = document.getElementById('pcb-name');
     var addrEl = document.getElementById('pcb-addr');
     var descEl = document.getElementById('pcb-desc');
-    var traces = board.querySelectorAll('.pcb-traces line');
     var allItems = board.querySelectorAll('[data-id]');
     var pinned = null;
+
+    /* Build a map of element centers (as % of board) */
+    function getCenter(id) {
+        var el = board.querySelector('[data-id="'+id+'"]');
+        if (!el) return null;
+        var bw = board.offsetWidth, bh = board.offsetHeight;
+        var r = el.getBoundingClientRect(), br = board.getBoundingClientRect();
+        return {
+            x: ((r.left - br.left + r.width/2) / bw) * 100,
+            y: ((r.top - br.top + r.height/2) / bh) * 100
+        };
+    }
+
+    /* Draw all trace lines */
+    function drawTraces() {
+        while (svg.firstChild) svg.removeChild(svg.firstChild);
+        wires.forEach(function(w) {
+            var a = getCenter(w[0]), b = getCenter(w[1]);
+            if (!a || !b) return;
+            var line = document.createElementNS('http://www.w3.org/2000/svg','line');
+            line.setAttribute('x1', a.x); line.setAttribute('y1', a.y);
+            line.setAttribute('x2', b.x); line.setAttribute('y2', b.y);
+            line.dataset.bus = w[2];
+            svg.appendChild(line);
+        });
+    }
+
+    drawTraces();
+    window.addEventListener('resize', drawTraces);
+
+    /* Which bus tags to highlight for each chip */
+    function busesFor(id) {
+        var tags = [];
+        wires.forEach(function(w) {
+            if (w[0] === id || w[1] === id) tags.push(w[2]);
+        });
+        return tags;
+    }
 
     function show(id) {
         var c = chips[id];
@@ -175,8 +200,22 @@ Motorola 68000 ran your code, the custom chips ran the machine.
         addrEl.style.display = ''; addrEl.textContent = c.addr;
         descEl.style.display = ''; descEl.textContent = c.desc;
         infoEl.classList.add('has-chip');
-        traces.forEach(function(t) {
-            t.classList.toggle('active', c.bus && c.bus.indexOf(t.dataset.bus) !== -1);
+        var buses = busesFor(id);
+        svg.querySelectorAll('line').forEach(function(t) {
+            var match = buses.indexOf(t.dataset.bus) !== -1;
+            /* Also highlight if this specific wire connects to id */
+            wires.forEach(function(w) {
+                if (w[2] === t.dataset.bus && (w[0] === id || w[1] === id)) match = true;
+            });
+            t.classList.toggle('active', match);
+        });
+        /* Highlight connected chips too */
+        wires.forEach(function(w) {
+            if (w[0] === id || w[1] === id) {
+                var other = w[0] === id ? w[1] : w[0];
+                var el = board.querySelector('[data-id="'+other+'"]');
+                if (el) el.classList.add('connected');
+            }
         });
     }
 
@@ -187,8 +226,8 @@ Motorola 68000 ran your code, the custom chips ran the machine.
         addrEl.style.display = 'none';
         descEl.style.display = 'none';
         infoEl.classList.remove('has-chip');
-        traces.forEach(function(t) { t.classList.remove('active'); });
-        allItems.forEach(function(el) { el.classList.remove('active'); });
+        svg.querySelectorAll('line').forEach(function(t) { t.classList.remove('active'); });
+        allItems.forEach(function(el) { el.classList.remove('active'); el.classList.remove('connected'); });
     }
 
     allItems.forEach(function(el) {
@@ -203,7 +242,7 @@ Motorola 68000 ran your code, the custom chips ran the machine.
             if (pinned === el.dataset.id) {
                 pinned = null; hide();
             } else {
-                allItems.forEach(function(x) { x.classList.remove('active'); });
+                allItems.forEach(function(x) { x.classList.remove('active'); x.classList.remove('connected'); });
                 pinned = el.dataset.id;
                 el.classList.add('active');
                 show(el.dataset.id);
