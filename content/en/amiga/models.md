@@ -220,7 +220,7 @@ The CD32 sold reasonably well in Europe but was blocked from the US market by a 
 
 <!-- section: $A01000 "Chipset Comparison" -->
 
-<div class="bit-table">
+<div class="bit-table compare-table">
 <div class="bit-header">
 <span class="bit-num">Feature</span>
 <span class="bit-dir">OCS (1985)</span>

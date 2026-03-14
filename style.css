@@ -955,6 +955,28 @@ section.visible {
     font-weight: 500;
 }
 
+/* Compare table — equal-width columns variant of bit-table */
+.compare-table .bit-num,
+.compare-table .bit-dir,
+.compare-table .bit-name {
+    width: auto;
+    flex: 1;
+    min-width: 0;
+}
+
+.compare-table .bit-func {
+    flex: 1;
+    min-width: 0;
+}
+
+.compare-table .bit-header {
+    gap: 8px;
+}
+
+.compare-table .bit-row {
+    gap: 8px;
+}
+
 /* ═══════════════════════════════════════════
    MACHINE TIMELINE
    ═══════════════════════════════════════════ */
