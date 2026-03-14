@@ -1815,6 +1815,7 @@ addresses for reading and writing different values.
 Each subsystem has a dedicated deep-dive page with full register documentation, instruction encoding, and programming examples — translated from the *Bible de l'Amiga*.
 
 <div class="addr-map">
+    <div class="addr-row addr-highlight"><div class="addr-label">$A01000</div><div class="addr-body"><a class="addr-name" href="amiga/models.html">Amiga Models</a><div class="addr-size">A1000 through A4000 — chipset generations, CPUs, release history</div></div></div>
     <div class="addr-row"><div class="addr-label">$CPU000</div><div class="addr-body"><a class="addr-name" href="amiga/68000.html">Motorola 68000</a><div class="addr-size">Pin configuration, control signals, addressing, interrupts</div></div></div>
     <div class="addr-row addr-highlight"><div class="addr-label">$BFE001</div><div class="addr-body"><a class="addr-name" href="amiga/cia.html">CIA 8520</a><div class="addr-size">CIA-A & CIA-B ports, timers, TOD counter, interrupt control</div></div></div>
     <div class="addr-row"><div class="addr-label">$DFF000</div><div class="addr-body"><a class="addr-name" href="amiga/chipset.html">Custom Chips</a><div class="addr-size">Agnus, Denise, Paula — architecture and pin descriptions</div></div></div>
