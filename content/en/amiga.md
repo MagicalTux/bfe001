@@ -112,25 +112,25 @@ Motorola 68000 ran your code, the custom chips ran the machine.
 <script>
 (function() {
     var chips = {
-        'cpu':    { name:'Motorola 68000', addr:'CPU · 7.09 MHz', desc:'16/32-bit CPU with 24-bit address bus (16 MB). Runs your code while the custom chips handle everything else. DIP-64 package.' },
-        'agnus':  { name:'Agnus (8375)', addr:'$DFF000', desc:'DMA controller, Copper coprocessor, and Blitter engine. Controls all chip RAM access and schedules DMA cycles. PLCC-84 package.' },
-        'gary':   { name:'Gary (5719)', addr:'Address Decoder', desc:'Routes CPU access to the correct chip \u2014 chip RAM, fast RAM, ROM, CIAs, or custom registers. The silent traffic cop.' },
-        'denise': { name:'Denise (8362)', addr:'$DFF000 (shared)', desc:'Video output: up to 6 bitplanes, 8 hardware sprites, collision detection, 32-color palette with HAM mode for 4096 colors.' },
-        'paula':  { name:'Paula (8364)', addr:'$DFF000 (shared)', desc:'4-channel 8-bit audio with DMA, floppy disk controller, serial port, and interrupt management. The music plays itself.' },
-        'cia-a':  { name:'CIA-A (8520)', addr:'$BFE001 \u2605', desc:'Keyboard serial input, game port fire buttons, power LED (bit 1), audio low-pass filter toggle, overlay bit, two 16-bit timers.' },
-        'cia-b':  { name:'CIA-B (8520)', addr:'$BFD000', desc:'Parallel port data, floppy disk control (motor, direction, side, step), serial handshaking, two 16-bit timers.' },
-        'rom':    { name:'Kickstart ROM', addr:'$F80000', desc:'Contains exec.library, intuition, graphics \u2014 the entire AmigaOS kernel. 256 KB (v1.3). Mapped to $000000 at power-on via overlay bit.' },
-        'ram':    { name:'Chip RAM', addr:'$000000', desc:'512 KB stock (16 \u00d7 256Kbit DRAM). Shared between CPU and custom chips \u2014 graphics, audio, and disk data must live here.' },
-        'kbd':    { name:'Keyboard', addr:'CIA-A serial', desc:'34-pin ribbon to integrated keyboard. CIA-A reads keycodes via serial protocol with handshake. Own 6500/1 microcontroller.' },
-        'floppy': { name:'Floppy Drive', addr:'Paula + CIA-B', desc:'Internal 3.5" 880 KB DD drive. Paula handles disk DMA; CIA-B controls motor, direction, side select, and step signals.' },
-        'power':  { name:'Power Input', addr:'5V / 12V DC', desc:'External power brick. The A500 draws about 10W idle. No internal PSU \u2014 just a simple DC-in connector.' },
-        'joy0':   { name:'Joystick Port 0', addr:'CIA-A / $DFF00A', desc:'DE-9 connector. Active-low fire button via CIA-A PRA bit 6. Directional switches read from JOY0DAT ($DFF00A). Mouse-compatible.' },
-        'joy1':   { name:'Joystick Port 1', addr:'CIA-A / $DFF00C', desc:'DE-9 connector. Active-low fire button via CIA-A PRA bit 7. JOY1DAT at $DFF00C. Primary game controller port.' },
-        'serial': { name:'Serial Port', addr:'DB25 RS-232', desc:'Paula handles serial data via $DFF018/$DFF030. CIA-B manages CTS/RTS/DSR/DTR handshaking. Up to 292 Kbaud in raw mode.' },
-        'parallel':{ name:'Parallel Port', addr:'CIA-A PRB', desc:'DB25 Centronics-compatible. 8-bit bidirectional data via CIA-A Port B ($BFE101). Active-low BUSY on CIA-B.' },
-        'video':  { name:'Video Output', addr:'DB23 RGB', desc:'Analog RGB from Denise. 15 kHz horizontal / 50 Hz vertical (PAL). Directly drives Amiga monitors; needs a scan doubler for VGA.' },
-        'audio':  { name:'Audio L/R', addr:'Paula DMA', desc:'Stereo RCA. Channels 0+3 = left, 1+2 = right. 8-bit DMA-driven from chip RAM. Hardware low-pass filter toggled via CIA-A bit 1.' },
-        'exp':    { name:'Expansion Slot', addr:'CPU bus', desc:'86-pin side expansion + trapdoor slow RAM slot. Provides full CPU bus access for accelerators, RAM cards, and peripherals.' }
+        'cpu':    { name:'Motorola 68000', addr:'CPU · 7.09 MHz', desc:'16/32-bit CPU with 24-bit address bus (16 MB). Runs your code while the custom chips handle everything else. DIP-64 package.', link:'amiga/68000.html' },
+        'agnus':  { name:'Agnus (8375)', addr:'$DFF000', desc:'DMA controller, Copper coprocessor, and Blitter engine. Controls all chip RAM access and schedules DMA cycles. PLCC-84 package.', link:'amiga/chipset.html' },
+        'gary':   { name:'Gary (5719)', addr:'Address Decoder', desc:'Routes CPU access to the correct chip \u2014 chip RAM, fast RAM, ROM, CIAs, or custom registers. The silent traffic cop.', link:'amiga/chipset.html' },
+        'denise': { name:'Denise (8362)', addr:'$DFF000 (shared)', desc:'Video output: up to 6 bitplanes, 8 hardware sprites, collision detection, 32-color palette with HAM mode for 4096 colors.', link:'amiga/chipset.html' },
+        'paula':  { name:'Paula (8364)', addr:'$DFF000 (shared)', desc:'4-channel 8-bit audio with DMA, floppy disk controller, serial port, and interrupt management. The music plays itself.', link:'amiga/chipset.html' },
+        'cia-a':  { name:'CIA-A (8520)', addr:'$BFE001 \u2605', desc:'Keyboard serial input, game port fire buttons, power LED (bit 1), audio low-pass filter toggle, overlay bit, two 16-bit timers.', link:'amiga/cia.html' },
+        'cia-b':  { name:'CIA-B (8520)', addr:'$BFD000', desc:'Parallel port data, floppy disk control (motor, direction, side, step), serial handshaking, two 16-bit timers.', link:'amiga/cia.html' },
+        'rom':    { name:'Kickstart ROM', addr:'$F80000', desc:'Contains exec.library, intuition, graphics \u2014 the entire AmigaOS kernel. 256 KB (v1.3). Mapped to $000000 at power-on via overlay bit.', link:'amiga/memory.html' },
+        'ram':    { name:'Chip RAM', addr:'$000000', desc:'512 KB stock (16 \u00d7 256Kbit DRAM). Shared between CPU and custom chips \u2014 graphics, audio, and disk data must live here.', link:'amiga/memory.html' },
+        'kbd':    { name:'Keyboard', addr:'CIA-A serial', desc:'34-pin ribbon to integrated keyboard. CIA-A reads keycodes via serial protocol with handshake. Own 6500/1 microcontroller.', link:'amiga/keyboard.html' },
+        'floppy': { name:'Floppy Drive', addr:'Paula + CIA-B', desc:'Internal 3.5" 880 KB DD drive. Paula handles disk DMA; CIA-B controls motor, direction, side select, and step signals.', link:'amiga/disk.html' },
+        'power':  { name:'Power Input', addr:'5V / 12V DC', desc:'External power brick. The A500 draws about 10W idle. No internal PSU \u2014 just a simple DC-in connector.', link:'amiga/connectors.html' },
+        'joy0':   { name:'Joystick Port 0', addr:'CIA-A / $DFF00A', desc:'DE-9 connector. Active-low fire button via CIA-A PRA bit 6. Directional switches read from JOY0DAT ($DFF00A). Mouse-compatible.', link:'amiga/input.html' },
+        'joy1':   { name:'Joystick Port 1', addr:'CIA-A / $DFF00C', desc:'DE-9 connector. Active-low fire button via CIA-A PRA bit 7. JOY1DAT at $DFF00C. Primary game controller port.', link:'amiga/input.html' },
+        'serial': { name:'Serial Port', addr:'DB25 RS-232', desc:'Paula handles serial data via $DFF018/$DFF030. CIA-B manages CTS/RTS/DSR/DTR handshaking. Up to 292 Kbaud in raw mode.', link:'amiga/serial.html' },
+        'parallel':{ name:'Parallel Port', addr:'CIA-A PRB', desc:'DB25 Centronics-compatible. 8-bit bidirectional data via CIA-A Port B ($BFE101). Active-low BUSY on CIA-B.', link:'amiga/connectors.html' },
+        'video':  { name:'Video Output', addr:'DB23 RGB', desc:'Analog RGB from Denise. 15 kHz horizontal / 50 Hz vertical (PAL). Directly drives Amiga monitors; needs a scan doubler for VGA.', link:'amiga/connectors.html' },
+        'audio':  { name:'Audio L/R', addr:'Paula DMA', desc:'Stereo RCA. Channels 0+3 = left, 1+2 = right. 8-bit DMA-driven from chip RAM. Hardware low-pass filter toggled via CIA-A bit 1.', link:'amiga/audio.html' },
+        'exp':    { name:'Expansion Slot', addr:'CPU bus', desc:'86-pin side expansion + trapdoor slow RAM slot. Provides full CPU bus access for accelerators, RAM cards, and peripherals.', link:'amiga/connectors.html' }
     };
 
     /* Connections: [from-id, to-id, bus-tag] */
@@ -152,8 +152,6 @@ Motorola 68000 ran your code, the custom chips ran the machine.
     var addrEl = document.getElementById('pcb-addr');
     var descEl = document.getElementById('pcb-desc');
     var allItems = board.querySelectorAll('[data-id]');
-    var pinned = null;
-
     /* Build a map of element centers (as % of board) */
     function getCenter(id) {
         var el = board.querySelector('[data-id="'+id+'"]');
@@ -220,7 +218,6 @@ Motorola 68000 ran your code, the custom chips ran the machine.
     }
 
     function hide() {
-        if (pinned) return;
         hintEl.style.display = '';
         nameEl.style.display = 'none';
         addrEl.style.display = 'none';
@@ -232,26 +229,18 @@ Motorola 68000 ran your code, the custom chips ran the machine.
 
     allItems.forEach(function(el) {
         el.addEventListener('mouseenter', function() {
-            if (!pinned) { show(el.dataset.id); el.classList.add('active'); }
+            show(el.dataset.id); el.classList.add('active');
         });
         el.addEventListener('mouseleave', function() {
-            if (!pinned) { hide(); el.classList.remove('active'); }
+            hide(); el.classList.remove('active');
         });
         el.addEventListener('click', function(e) {
             e.stopPropagation();
-            if (pinned === el.dataset.id) {
-                pinned = null; hide();
-            } else {
-                allItems.forEach(function(x) { x.classList.remove('active'); x.classList.remove('connected'); });
-                pinned = el.dataset.id;
-                el.classList.add('active');
-                show(el.dataset.id);
+            var c = chips[el.dataset.id];
+            if (c && c.link) {
+                window.location.href = c.link;
             }
         });
-    });
-
-    board.addEventListener('click', function() {
-        if (pinned) { pinned = null; hide(); }
     });
 })();
 </script>
