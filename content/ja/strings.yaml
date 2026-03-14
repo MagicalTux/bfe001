@@ -5,6 +5,9 @@ nav:
   - id: mind
     href: mind.html
     label: "$040000 思考"
+  - id: amiga
+    href: amiga.html
+    label: "$DFF000 Amiga"
   - id: timeline
     href: timeline.html
     label: "$FC0000 年表"

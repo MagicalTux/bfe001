@@ -140,6 +140,16 @@ def build_lang(env, lang, languages):
         out_dir / "mind.html",
     )
 
+    # --- Amiga page ---
+    meta, body = load_markdown_file(lang_dir / "amiga.md")
+    sections = split_sections(body)
+    build_page(
+        env,
+        "page.html",
+        {**common, **meta, "sections": sections, "active_page": "amiga"},
+        out_dir / "amiga.html",
+    )
+
     # --- Timeline page ---
     timeline_dir = lang_dir / "timeline"
     intro_meta, intro_body = load_markdown_file(timeline_dir / "_intro.md")
