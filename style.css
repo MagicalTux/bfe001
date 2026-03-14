@@ -367,120 +367,283 @@ section.visible {
 }
 
 /* ═══════════════════════════════════════════
-   CHIP DIAGRAM
+   INTERACTIVE PCB BOARD
    ═══════════════════════════════════════════ */
-.chip-diagram {
-    --bus-color: var(--border-light);
-    --bus-width: 2px;
-    --stem-h: 20px;
+.pcb {
+    position: relative;
+    aspect-ratio: 2 / 1;
     margin: 32px 0;
+    border-radius: 6px;
+    border: 2px solid #3a2a10;
+    overflow: hidden;
+    background:
+        linear-gradient(rgba(20, 50, 25, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(20, 50, 25, 0.06) 1px, transparent 1px),
+        #0a1a0f;
+    background-size: 10px 10px;
+    user-select: none;
+}
+
+/* Mounting holes */
+.pcb-hole {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid #3a2a10;
+    background: #050a07;
+}
+
+/* Silkscreen labels */
+.pcb-silk {
+    position: absolute;
+    font-family: 'Topaz', 'IBM Plex Mono', monospace;
+    color: rgba(220, 210, 180, 0.35);
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+/* SVG trace layer */
+.pcb-traces {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.pcb-traces line {
+    stroke: #2a3a1a;
+    stroke-width: 2;
+    transition: stroke 0.3s, stroke-width 0.3s;
+}
+
+.pcb-traces line.active {
+    stroke: var(--amber-dim);
+    stroke-width: 3;
+}
+
+/* Chip packages */
+.pcb-chip {
+    position: absolute;
+    background: #0c0c0e;
+    border: 1px solid #2a2a2e;
+    border-radius: 2px;
+    cursor: pointer;
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-/* Horizontal bus bar */
-.chip-bus {
-    width: 100%;
-    height: var(--bus-width);
-    background: var(--bus-color);
-    position: relative;
-}
-
-/* Vertical stub rising from bus center to the row above */
-.chip-bus::before {
-    content: '';
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    width: var(--bus-width);
-    height: var(--stem-h);
-    background: var(--bus-color);
-    transform: translateX(-50%);
-}
-
-.chip-bus.no-stub::before { display: none; }
-
-/* Row of chip boxes */
-.chip-row {
-    display: flex;
-    gap: 12px;
     justify-content: center;
-    width: 100%;
-    position: relative;
+    gap: 1px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    z-index: 2;
 }
 
-/* Each chip box draws its own vertical connector downward to the bus */
-.chip-box {
-    background: var(--bg-card);
-    border: 1px solid var(--border-light);
-    padding: 14px 18px;
-    flex: 1;
-    max-width: 220px;
-    border-radius: 3px;
-    position: relative;
-}
-
-.chip-box.chip-cpu {
-    max-width: 240px;
-    flex: none;
-    text-align: center;
-    margin-bottom: var(--stem-h);
-}
-
-/* Vertical connector below each box (to the bus) */
-.chip-box.chip-cpu::after,
-.chip-row.chip-connected .chip-box::before {
+/* DIP pin marks — left/right edges */
+.pcb-chip::before,
+.pcb-chip::after {
     content: '';
     position: absolute;
+    top: 12%;
+    bottom: 12%;
+    width: 3px;
+    background: repeating-linear-gradient(
+        to bottom,
+        #555 0px, #555 2px,
+        transparent 2px, transparent 5px
+    );
+}
+.pcb-chip::before { left: -3px; }
+.pcb-chip::after { right: -3px; }
+
+/* Pin-1 notch */
+.pcb-chip .pcb-notch {
+    position: absolute;
+    top: -1px;
     left: 50%;
-    width: var(--bus-width);
-    height: var(--stem-h);
-    background: var(--bus-color);
     transform: translateX(-50%);
+    width: 10px;
+    height: 5px;
+    border-radius: 0 0 5px 5px;
+    background: #1a1a1e;
+    border: 1px solid #2a2a2e;
+    border-top: none;
 }
 
-.chip-box.chip-cpu::after {
-    bottom: calc(-1 * var(--stem-h));
+/* PLCC package — pins on all four sides */
+.pcb-chip.plcc::before,
+.pcb-chip.plcc::after {
+    top: -3px;
+    bottom: auto;
+    left: 12%;
+    right: 12%;
+    width: auto;
+    height: 3px;
+    background: repeating-linear-gradient(
+        to right,
+        #555 0px, #555 2px,
+        transparent 2px, transparent 5px
+    );
+}
+.pcb-chip.plcc::before { top: -3px; }
+.pcb-chip.plcc::after { bottom: -3px; top: auto; }
+
+.pcb-chip.plcc .pcb-pin-lr {
+    position: absolute;
+    top: 12%;
+    bottom: 12%;
+    width: 3px;
+    background: repeating-linear-gradient(
+        to bottom,
+        #555 0px, #555 2px,
+        transparent 2px, transparent 5px
+    );
 }
 
-.chip-row.chip-connected .chip-box::before {
-    top: calc(-1 * var(--stem-h));
+.pcb-chip.plcc .pcb-pin-lr.left { left: -3px; }
+.pcb-chip.plcc .pcb-pin-lr.right { right: -3px; }
+
+.pcb-chip:hover,
+.pcb-chip.active {
+    border-color: var(--amber);
+    box-shadow: 0 0 12px rgba(240, 165, 0, 0.2), inset 0 0 6px rgba(240, 165, 0, 0.05);
+    z-index: 3;
 }
 
-.chip-row.chip-connected {
-    margin-top: var(--stem-h);
+.pcb-chip.star:hover,
+.pcb-chip.star.active {
+    border-color: var(--amber);
+    box-shadow: 0 0 20px rgba(240, 165, 0, 0.35), inset 0 0 8px rgba(240, 165, 0, 0.08);
 }
 
-.chip-box.chip-highlight {
-    border-color: var(--amber-dim);
-    box-shadow: 0 0 12px rgba(240, 165, 0, 0.08);
-}
-
-.chip-name {
+.pcb-chip-label {
     font-family: 'Topaz', 'IBM Plex Mono', monospace;
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--green-term);
-    margin-bottom: 6px;
+    font-size: 9px;
+    color: rgba(220, 210, 180, 0.8);
+    text-align: center;
+    line-height: 1.2;
+    letter-spacing: 0.03em;
 }
 
-.chip-box.chip-highlight .chip-name {
-    color: var(--amber);
-}
-
-.chip-detail {
+.pcb-chip-sublabel {
     font-family: 'IBM Plex Mono', monospace;
-    font-size: 12px;
-    color: var(--text-dim);
-    line-height: 1.5;
+    font-size: 7px;
+    color: rgba(220, 210, 180, 0.4);
+    text-align: center;
 }
 
-.chip-addr {
+/* Connector styling */
+.pcb-conn {
+    position: absolute;
+    background: #1a1510;
+    border: 1px solid #3a2a10;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    z-index: 2;
+}
+
+.pcb-conn:hover,
+.pcb-conn.active {
+    border-color: var(--amber-dim);
+    box-shadow: 0 0 8px rgba(240, 165, 0, 0.15);
+}
+
+.pcb-conn-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 7px;
+    color: rgba(220, 210, 180, 0.5);
+    text-align: center;
+    line-height: 1.1;
+}
+
+/* RAM chip array */
+.pcb-ram {
+    position: absolute;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3px;
+    z-index: 2;
+    cursor: pointer;
+}
+
+.pcb-ram:hover .pcb-ram-chip,
+.pcb-ram.active .pcb-ram-chip {
+    border-color: var(--amber-dim);
+}
+
+.pcb-ram-chip {
+    background: #0c0c0e;
+    border: 1px solid #2a2a2e;
+    border-radius: 1px;
+    aspect-ratio: 3/1;
+    transition: border-color 0.2s;
+}
+
+.pcb-ram-label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     font-family: 'Topaz', 'IBM Plex Mono', monospace;
+    font-size: 8px;
+    color: rgba(220, 210, 180, 0.5);
+    pointer-events: none;
+    text-align: center;
+    line-height: 1.2;
+}
+
+/* Info bar at bottom */
+.pcb-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 8px 16px;
+    background: rgba(7, 8, 12, 0.88);
+    backdrop-filter: blur(6px);
+    border-top: 1px solid var(--border);
+    font-family: 'IBM Plex Mono', monospace;
+    transition: border-color 0.3s;
+    min-height: 52px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    z-index: 10;
+}
+
+.pcb-info.has-chip {
+    border-top-color: var(--amber-dim);
+}
+
+.pcb-info-hint {
+    font-size: 11px;
+    color: var(--text-dim);
+    letter-spacing: 0.05em;
+}
+
+.pcb-info-name {
+    font-family: 'Topaz', 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    color: var(--amber);
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.pcb-info-addr {
     font-size: 11px;
     color: var(--amber-dim);
-    margin-bottom: 4px;
+    white-space: nowrap;
+}
+
+.pcb-info-desc {
+    font-size: 11px;
+    color: var(--text);
+    line-height: 1.4;
+    flex: 1;
 }
 
 /* ═══════════════════════════════════════════
@@ -958,10 +1121,10 @@ footer .led-indicator {
 
     .mem-block { padding: 16px; font-size: 13px; }
 
-    .chip-row { gap: 6px; flex-wrap: wrap; }
-    .chip-box { padding: 10px 12px; min-width: 0; }
-    .chip-name { font-size: 13px; }
-    .chip-detail { font-size: 11px; }
+    .pcb { aspect-ratio: auto; min-height: 360px; }
+    .pcb-chip-label { font-size: 7px; }
+    .pcb-info { flex-direction: column; align-items: flex-start; gap: 4px; padding: 6px 10px; }
+    .pcb-info-desc { font-size: 10px; }
 
     .addr-label { width: 76px; font-size: 11px; padding: 8px; }
     .addr-body { padding: 8px 12px; }
