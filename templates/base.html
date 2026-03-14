@@ -1,14 +1,57 @@
 <!DOCTYPE html>
 <html lang="{{ lang }}">
 <head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4GGQZ9CGP0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-4GGQZ9CGP0');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }}</title>
     <meta name="description" content="{{ description }}">
+    <meta name="author" content="Mark Karpelès">
+    <meta name="theme-color" content="#f0a500">
+    <link rel="canonical" href="{{ page_url }}">
+    {% for hl_lang, hl_url in hreflangs %}
+    <link rel="alternate" hreflang="{{ hl_lang }}" href="{{ hl_url }}">
+    {% endfor %}
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{{ title }}">
+    <meta property="og:description" content="{{ description }}">
+    <meta property="og:url" content="{{ page_url }}">
+    <meta property="og:site_name" content="BFE001">
+    <meta property="og:locale" content="{{ lang }}">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="{{ title }}">
+    <meta name="twitter:description" content="{{ description }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ root }}style.css">
+    {% block structured_data %}
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": {{ title | tojson }},
+        "description": {{ description | tojson }},
+        "url": {{ page_url | tojson }},
+        "inLanguage": {{ lang | tojson }},
+        "author": {
+            "@type": "Person",
+            "name": "Mark Karpelès"
+        },
+        "isPartOf": {
+            "@type": "WebSite",
+            "name": "BFE001",
+            "url": "https://www.bfe001.net/"
+        }
+    }
+    </script>
+    {% endblock %}
 </head>
 <body>
 
@@ -33,7 +76,9 @@
 
     {% block after_nav %}{% endblock %}
 
+    <main>
     {% block content %}{% endblock %}
+    </main>
 
     <footer>
         <div class="content">

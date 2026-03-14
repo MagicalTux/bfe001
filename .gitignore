@@ -1,8 +1,10 @@
 /sources/
 /.venv/
 
-# Generated HTML — built by GitHub Actions
+# Generated output — built by GitHub Actions
 /*.html
 /ja/*.html
 /amiga/*.html
 /ja/amiga/*.html
+/sitemap.xml
+/robots.txt
