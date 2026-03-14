@@ -19,13 +19,13 @@
 
     <nav class="site-nav">
         {% for item in strings.nav %}
-        <a href="{{ item.href }}"{% if item.id == active_page %} class="active"{% endif %}>{{ item.label }}</a>
+        <a href="{{ nav_root | default('', true) }}{{ item.href }}"{% if item.id == active_page %} class="active"{% endif %}>{{ item.label }}</a>
         {% endfor %}
         {% if languages | length > 1 %}
         <span class="nav-sep">|</span>
         {% for l in languages %}
         {% if l != current_lang %}
-        <a href="{% if l == default_lang %}{{ root }}{% else %}{{ root }}{{ l }}/{% endif %}{{ active_page }}.html" class="lang-link">{{ l }}</a>
+        <a href="{% if l == default_lang %}{{ root }}{% else %}{{ root }}{{ l }}/{% endif %}{{ (active_page_path or active_page) }}.html" class="lang-link">{{ l }}</a>
         {% endif %}
         {% endfor %}
         {% endif %}

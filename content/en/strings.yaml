@@ -19,4 +19,8 @@ hero:
     a <em>ZX Spectrum</em> in Dijon to the Amiga's memory-mapped hardware,
     and everything that wired itself in between.
 
+amiga_nav:
+  back: "Amiga Hardware"
+  toc_label: "Sub-pages"
+
 footer: "BFE001.net · Mark Karpelès"

@@ -99,6 +99,60 @@ def build_page(env, template_name, context, output_path):
     print(f"  {output_path.relative_to(ROOT)}")
 
 
+def build_amiga_subpages(env, lang, languages, common, out_dir):
+    """Build Amiga sub-pages from content/{lang}/amiga/*.md."""
+    amiga_dir = CONTENT_DIR / lang / "amiga"
+    if not amiga_dir.exists():
+        return []
+
+    # First pass: collect metadata
+    subpages = []
+    for path in sorted(amiga_dir.glob("*.md")):
+        meta, body = load_markdown_file(path)
+        slug = path.stem
+        subpages.append({
+            "slug": slug,
+            "addr": meta.get("addr", ""),
+            "title": meta.get("title", slug),
+            "order": meta.get("order", 99),
+            "path": f"amiga/{slug}.html",
+        })
+
+    # Sort by order field
+    subpages.sort(key=lambda p: p["order"])
+
+    # Second pass: render all pages
+    for i, page in enumerate(subpages):
+        path = amiga_dir / f"{page['slug']}.md"
+        meta, body = load_markdown_file(path)
+        sections = split_sections(body)
+        prev_page = subpages[i - 1] if i > 0 else None
+        next_page = subpages[i + 1] if i < len(subpages) - 1 else None
+
+        # Sub-pages are one directory deeper
+        sub_root = "../" + common["root"]
+
+        build_page(
+            env,
+            "amiga_page.html",
+            {
+                **common,
+                **meta,
+                "root": sub_root,
+                "nav_root": "../",
+                "sections": sections,
+                "active_page": "amiga",
+                "active_page_path": f"amiga/{page['slug']}",
+                "amiga_subpages": subpages,
+                "prev_page": prev_page,
+                "next_page": next_page,
+            },
+            out_dir / "amiga" / f"{page['slug']}.html",
+        )
+
+    return subpages
+
+
 def build_lang(env, lang, languages):
     """Build all pages for a language."""
     lang_dir = CONTENT_DIR / lang
@@ -140,13 +194,17 @@ def build_lang(env, lang, languages):
         out_dir / "mind.html",
     )
 
+    # --- Amiga sub-pages (build before main page to get subpage list) ---
+    amiga_subpages = build_amiga_subpages(env, lang, languages, common, out_dir)
+
     # --- Amiga page ---
     meta, body = load_markdown_file(lang_dir / "amiga.md")
     sections = split_sections(body)
     build_page(
         env,
         "page.html",
-        {**common, **meta, "sections": sections, "active_page": "amiga"},
+        {**common, **meta, "sections": sections, "active_page": "amiga",
+         "amiga_subpages": amiga_subpages},
         out_dir / "amiga.html",
     )
 

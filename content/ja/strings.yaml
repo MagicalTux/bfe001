@@ -19,4 +19,8 @@ hero:
     <em>ZX Spectrum</em> からAmigaのメモリマップドハードウェアまで、
     その間に配線されたすべてのこと。
 
+amiga_nav:
+  back: "Amiga ハードウェア"
+  toc_label: "サブページ"
+
 footer: "BFE001.net · Mark Karpelès"

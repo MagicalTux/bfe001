@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block after_nav %}
+    <div class="sub-nav">
+        <a href="{{ nav_root }}amiga.html">{{ strings.amiga_nav.back }}</a>
+        <span class="sub-nav-sep">/</span>
+        <span class="sub-nav-current">{{ title }}</span>
+    </div>
+
+    <details class="page-toc">
+        <summary>{{ strings.amiga_nav.toc_label | default("Sub-pages") }}</summary>
+        <div class="page-toc-grid">
+            {% for sp in amiga_subpages %}
+            <a href="{{ sp.slug }}.html"{% if sp.slug == active_page_path.split('/')[1] %} class="current"{% endif %}>
+                <span class="page-toc-addr">{{ sp.addr }}</span>
+                <span class="page-toc-title">{{ sp.title }}</span>
+            </a>
+            {% endfor %}
+        </div>
+    </details>
+{% endblock %}
+
+{% block content %}
+    {% for section in sections %}
+    <section>
+        <div class="section-header">
+            <span class="section-addr">{{ section.addr }}</span>
+            <h2 class="section-title">{{ section.title }}</h2>
+        </div>
+        <div class="prose">
+            {{ section.content }}
+        </div>
+    </section>
+    {% endfor %}
+
+    <nav class="page-nav-bottom">
+        {% if prev_page %}
+        <a href="{{ prev_page.slug }}.html" class="page-nav-prev">
+            <span class="page-nav-dir">&larr;</span>
+            <span class="page-nav-addr">{{ prev_page.addr }}</span>
+            <span class="page-nav-label">{{ prev_page.title }}</span>
+        </a>
+        {% else %}
+        <span></span>
+        {% endif %}
+        {% if next_page %}
+        <a href="{{ next_page.slug }}.html" class="page-nav-next">
+            <span class="page-nav-label">{{ next_page.title }}</span>
+            <span class="page-nav-addr">{{ next_page.addr }}</span>
+            <span class="page-nav-dir">&rarr;</span>
+        </a>
+        {% endif %}
+    </nav>
+{% endblock %}

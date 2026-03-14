@@ -1820,3 +1820,25 @@ addresses for reading and writing different values.
         <span class="reg-val">POTGOR — Pot port data read</span>
     </div>
 </div>
+
+<!-- section: $DFF1FE "Deep Dive Pages" -->
+
+Each subsystem has a dedicated deep-dive page with full register documentation, instruction encoding, and programming examples — translated from the *Bible de l'Amiga*.
+
+<div class="addr-map">
+    <div class="addr-row"><div class="addr-label">$CPU000</div><div class="addr-body"><a class="addr-name" href="amiga/68000.html">Motorola 68000</a><div class="addr-size">Pin configuration, control signals, addressing, interrupts</div></div></div>
+    <div class="addr-row addr-highlight"><div class="addr-label">$BFE001</div><div class="addr-body"><a class="addr-name" href="amiga/cia.html">CIA 8520</a><div class="addr-size">CIA-A & CIA-B ports, timers, TOD counter, interrupt control</div></div></div>
+    <div class="addr-row"><div class="addr-label">$DFF000</div><div class="addr-body"><a class="addr-name" href="amiga/chipset.html">Custom Chips</a><div class="addr-size">Agnus, Denise, Paula — architecture and pin descriptions</div></div></div>
+    <div class="addr-row"><div class="addr-label">$000000</div><div class="addr-body"><a class="addr-name" href="amiga/memory.html">Memory Organization</a><div class="addr-size">Chip RAM, Fast RAM, memory map, ROM, register space</div></div></div>
+    <div class="addr-row"><div class="addr-label">$DFF096</div><div class="addr-body"><a class="addr-name" href="amiga/dma.html">DMA & Interrupts</a><div class="addr-size">DMACON, bus cycles, INTREQ/INTENA, priority levels</div></div></div>
+    <div class="addr-row"><div class="addr-label">$DFF080</div><div class="addr-body"><a class="addr-name" href="amiga/copper.html">Copper Coprocessor</a><div class="addr-size">MOVE/WAIT/SKIP instructions, Copper lists, DMA</div></div></div>
+    <div class="addr-row"><div class="addr-label">$DFF100</div><div class="addr-body"><a class="addr-name" href="amiga/playfields.html">Playfields & Display</a><div class="addr-size">Bitplanes, resolutions, HAM, dual playfields, scrolling</div></div></div>
+    <div class="addr-row"><div class="addr-label">$DFF120</div><div class="addr-body"><a class="addr-name" href="amiga/sprites.html">Sprites</a><div class="addr-size">8 channels, control words, positioning, attached sprites</div></div></div>
+    <div class="addr-row"><div class="addr-label">$DFF040</div><div class="addr-body"><a class="addr-name" href="amiga/blitter.html">Blitter</a><div class="addr-size">Block transfers, minterms, shifting, masks, fill, line draw</div></div></div>
+    <div class="addr-row"><div class="addr-label">$DFF0A0</div><div class="addr-body"><a class="addr-name" href="amiga/audio.html">Audio System</a><div class="addr-size">4 channels, DMA playback, volume, modulation, filter</div></div></div>
+    <div class="addr-row"><div class="addr-label">$JOY00A</div><div class="addr-body"><a class="addr-name" href="amiga/input.html">Mouse & Joystick</a><div class="addr-size">Game ports, quadrature decoding, paddle inputs</div></div></div>
+    <div class="addr-row"><div class="addr-label">$DFF030</div><div class="addr-body"><a class="addr-name" href="amiga/serial.html">Serial Port</a><div class="addr-size">UART, baud rate, SERDAT/SERDATR/SERPER</div></div></div>
+    <div class="addr-row"><div class="addr-label">$DFF020</div><div class="addr-body"><a class="addr-name" href="amiga/disk.html">Disk Controller</a><div class="addr-size">Floppy DMA, MFM encoding, DSKSYNC</div></div></div>
+    <div class="addr-row"><div class="addr-label">$KBD001</div><div class="addr-body"><a class="addr-name" href="amiga/keyboard.html">Keyboard</a><div class="addr-size">6500/1 microprocessor, serial protocol, key codes</div></div></div>
+    <div class="addr-row"><div class="addr-label">$CONN01</div><div class="addr-body"><a class="addr-name" href="amiga/connectors.html">Connectors</a><div class="addr-size">RGB, serial, parallel, floppy, game ports, expansion</div></div></div>
+</div>
