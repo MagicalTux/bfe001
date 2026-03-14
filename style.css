@@ -370,60 +370,86 @@ section.visible {
    CHIP DIAGRAM
    ═══════════════════════════════════════════ */
 .chip-diagram {
+    --bus-color: var(--border-light);
+    --bus-width: 2px;
+    --stem-h: 20px;
     margin: 32px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0;
 }
 
+/* Horizontal bus bar */
 .chip-bus {
-    width: 80%;
-    max-width: 560px;
-    height: 2px;
-    background: var(--border-light);
+    width: 100%;
+    height: var(--bus-width);
+    background: var(--bus-color);
     position: relative;
-    margin: 0;
 }
 
+/* Vertical stub rising from bus center to the row above */
 .chip-bus::before {
     content: '';
     position: absolute;
     left: 50%;
-    top: -12px;
-    width: 2px;
-    height: 12px;
-    background: var(--border-light);
+    bottom: 0;
+    width: var(--bus-width);
+    height: var(--stem-h);
+    background: var(--bus-color);
+    transform: translateX(-50%);
 }
 
-.chip-bus.no-top::before {
-    display: none;
-}
+.chip-bus.no-stub::before { display: none; }
 
+/* Row of chip boxes */
 .chip-row {
     display: flex;
-    gap: 16px;
+    gap: 12px;
     justify-content: center;
-    flex-wrap: wrap;
+    width: 100%;
     position: relative;
-    padding-top: 12px;
 }
 
-.chip-row .chip-stem {
-    position: absolute;
-    top: 0;
-    width: 2px;
-    height: 12px;
-    background: var(--border-light);
-}
-
+/* Each chip box draws its own vertical connector downward to the bus */
 .chip-box {
     background: var(--bg-card);
     border: 1px solid var(--border-light);
-    padding: 14px 20px;
-    min-width: 160px;
+    padding: 14px 18px;
+    flex: 1;
+    max-width: 220px;
     border-radius: 3px;
     position: relative;
+}
+
+.chip-box.chip-cpu {
+    max-width: 240px;
+    flex: none;
+    text-align: center;
+    margin-bottom: var(--stem-h);
+}
+
+/* Vertical connector below each box (to the bus) */
+.chip-box.chip-cpu::after,
+.chip-row.chip-connected .chip-box::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    width: var(--bus-width);
+    height: var(--stem-h);
+    background: var(--bus-color);
+    transform: translateX(-50%);
+}
+
+.chip-box.chip-cpu::after {
+    bottom: calc(-1 * var(--stem-h));
+}
+
+.chip-row.chip-connected .chip-box::before {
+    top: calc(-1 * var(--stem-h));
+}
+
+.chip-row.chip-connected {
+    margin-top: var(--stem-h);
 }
 
 .chip-box.chip-highlight {
@@ -932,10 +958,10 @@ footer .led-indicator {
 
     .mem-block { padding: 16px; font-size: 13px; }
 
-    .chip-box { min-width: 130px; padding: 10px 14px; }
+    .chip-row { gap: 6px; flex-wrap: wrap; }
+    .chip-box { padding: 10px 12px; min-width: 0; }
     .chip-name { font-size: 13px; }
     .chip-detail { font-size: 11px; }
-    .chip-row { gap: 8px; }
 
     .addr-label { width: 76px; font-size: 11px; padding: 8px; }
     .addr-body { padding: 8px 12px; }

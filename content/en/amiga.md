@@ -10,18 +10,13 @@ that handled graphics, sound, and DMA independently of the CPU. While the
 Motorola 68000 ran your code, the custom chips ran the machine.
 
 <div class="chip-diagram">
-    <div class="chip-row" style="padding-top:0">
-        <div class="chip-box">
-            <div class="chip-name">Motorola 68000</div>
-            <div class="chip-detail">16-bit data bus</div>
-            <div class="chip-detail">24-bit address bus</div>
-        </div>
+    <div class="chip-box chip-cpu">
+        <div class="chip-name">Motorola 68000</div>
+        <div class="chip-detail">16-bit data bus</div>
+        <div class="chip-detail">24-bit address bus</div>
     </div>
-    <div class="chip-bus"></div>
-    <div class="chip-row">
-        <span class="chip-stem" style="left:16%"></span>
-        <span class="chip-stem" style="left:50%"></span>
-        <span class="chip-stem" style="left:84%"></span>
+    <div class="chip-bus no-stub"></div>
+    <div class="chip-row chip-connected">
         <div class="chip-box">
             <div class="chip-name">AGNUS</div>
             <div class="chip-detail">DMA controller</div>
@@ -44,10 +39,8 @@ Motorola 68000 ran your code, the custom chips ran the machine.
             <div class="chip-detail">Interrupts</div>
         </div>
     </div>
-    <div class="chip-bus no-top"></div>
-    <div class="chip-row">
-        <span class="chip-stem" style="left:25%"></span>
-        <span class="chip-stem" style="left:75%"></span>
+    <div class="chip-bus no-stub"></div>
+    <div class="chip-row chip-connected">
         <div class="chip-box chip-highlight">
             <div class="chip-addr">$BFE001</div>
             <div class="chip-name">CIA-A</div>
