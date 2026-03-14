@@ -1,2 +1,6 @@
 /sources/
 /.venv/
+
+# Generated HTML — built by GitHub Actions
+/*.html
+/ja/*.html
