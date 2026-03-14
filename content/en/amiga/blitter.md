@@ -27,16 +27,10 @@ The combination is performed **bit by bit**: for each bit position, the correspo
 
 The Blitter window defines the rectangular region of memory processed in one operation. It is specified in the **BLTSIZE** register as a height (in lines) and width (in words).
 
-<div class="bit-table">
-<div class="bit-header">
-<span class="bit-num">Register</span>
-<span class="bit-dir">Bits</span>
-<span class="bit-name">Name</span>
-<span class="bit-func">Function</span>
-</div>
-<div class="bit-row"><span class="bit-num">BLTSIZE</span><span class="bit-dir">15–6</span><span class="bit-name">H9–H0</span><span class="bit-func">Height — 1 to 1024 lines (0 = 1024)</span></div>
-<div class="bit-row"><span class="bit-num">BLTSIZE</span><span class="bit-dir">5–0</span><span class="bit-name">W5–W0</span><span class="bit-func">Width — 1 to 64 words (0 = 64, max 1024 pixels)</span></div>
-</div>
+| Register | Bits | Name | Function |
+|----------|------|------|----------|
+| BLTSIZE | 15–6 | H9–H0 | Height — 1 to 1024 lines (0 = 1024) |
+| BLTSIZE | 5–0 | W5–W0 | Width — 1 to 64 words (0 = 64, max 1024 pixels) |
 
 The register value is computed as: `BLTSIZE = Height * 64 + Width`
 
@@ -76,22 +70,16 @@ After each line, the Blitter adds the modulo value to the current pointer. After
 
 The Blitter's logical combination of sources A, B, and C is controlled by 8 bits called **minterms** (LF0–LF7). These bits select which of the 8 possible input combinations produce a 1 in the output bit D. The results of all selected minterms are OR'd together.
 
-<div class="bit-table">
-<div class="bit-header">
-<span class="bit-num">Bit</span>
-<span class="bit-dir">Minterm</span>
-<span class="bit-name">Input ABC</span>
-<span class="bit-func">Equation (1 when true)</span>
-</div>
-<div class="bit-row"><span class="bit-num">LF7</span><span class="bit-dir">ABC</span><span class="bit-name">111</span><span class="bit-func">A AND B AND C</span></div>
-<div class="bit-row"><span class="bit-num">LF6</span><span class="bit-dir">ABc</span><span class="bit-name">110</span><span class="bit-func">A AND B AND (NOT C)</span></div>
-<div class="bit-row"><span class="bit-num">LF5</span><span class="bit-dir">AbC</span><span class="bit-name">101</span><span class="bit-func">A AND (NOT B) AND C</span></div>
-<div class="bit-row"><span class="bit-num">LF4</span><span class="bit-dir">Abc</span><span class="bit-name">100</span><span class="bit-func">A AND (NOT B) AND (NOT C)</span></div>
-<div class="bit-row"><span class="bit-num">LF3</span><span class="bit-dir">aBC</span><span class="bit-name">011</span><span class="bit-func">(NOT A) AND B AND C</span></div>
-<div class="bit-row"><span class="bit-num">LF2</span><span class="bit-dir">aBc</span><span class="bit-name">010</span><span class="bit-func">(NOT A) AND B AND (NOT C)</span></div>
-<div class="bit-row"><span class="bit-num">LF1</span><span class="bit-dir">abC</span><span class="bit-name">001</span><span class="bit-func">(NOT A) AND (NOT B) AND C</span></div>
-<div class="bit-row"><span class="bit-num">LF0</span><span class="bit-dir">abc</span><span class="bit-name">000</span><span class="bit-func">(NOT A) AND (NOT B) AND (NOT C)</span></div>
-</div>
+| Bit | Minterm | Input ABC | Equation (1 when true) |
+|-----|---------|-----------|------------------------|
+| LF7 | ABC | 111 | A AND B AND C |
+| LF6 | ABc | 110 | A AND B AND (NOT C) |
+| LF5 | AbC | 101 | A AND (NOT B) AND C |
+| LF4 | Abc | 100 | A AND (NOT B) AND (NOT C) |
+| LF3 | aBC | 011 | (NOT A) AND B AND C |
+| LF2 | aBc | 010 | (NOT A) AND B AND (NOT C) |
+| LF1 | abC | 001 | (NOT A) AND (NOT B) AND C |
+| LF0 | abc | 000 | (NOT A) AND (NOT B) AND (NOT C) |
 
 ### Common Minterm Values
 
@@ -134,40 +122,28 @@ Only bits that are **set** in the mask are passed through; masked bits are force
 
 ### BLTCON0 ($DFF040, write only)
 
-<div class="bit-table">
-<div class="bit-header">
-<span class="bit-num">Bit</span>
-<span class="bit-dir">Name</span>
-<span class="bit-name">Function</span>
-<span class="bit-func">Description</span>
-</div>
-<div class="bit-row"><span class="bit-num">15–12</span><span class="bit-dir">ASH3–ASH0</span><span class="bit-name">Source A shift</span><span class="bit-func">Right-shift amount for source A data (0–15)</span></div>
-<div class="bit-row bit-highlight"><span class="bit-num">11</span><span class="bit-dir">USEA</span><span class="bit-name">Enable A DMA</span><span class="bit-func">Activate DMA channel for source A</span></div>
-<div class="bit-row bit-highlight"><span class="bit-num">10</span><span class="bit-dir">USEB</span><span class="bit-name">Enable B DMA</span><span class="bit-func">Activate DMA channel for source B</span></div>
-<div class="bit-row bit-highlight"><span class="bit-num">9</span><span class="bit-dir">USEC</span><span class="bit-name">Enable C DMA</span><span class="bit-func">Activate DMA channel for source C</span></div>
-<div class="bit-row bit-highlight"><span class="bit-num">8</span><span class="bit-dir">USED</span><span class="bit-name">Enable D DMA</span><span class="bit-func">Activate DMA channel for destination D</span></div>
-<div class="bit-row"><span class="bit-num">7–0</span><span class="bit-dir">LF7–LF0</span><span class="bit-name">Minterms</span><span class="bit-func">Logic function selection (see above)</span></div>
-</div>
+| Bit | Name | Function | Description |
+|-----|------|----------|-------------|
+| 15–12 | ASH3–ASH0 | Source A shift | Right-shift amount for source A data (0–15) |
+| 11 | USEA | Enable A DMA | Activate DMA channel for source A |
+| 10 | USEB | Enable B DMA | Activate DMA channel for source B |
+| 9 | USEC | Enable C DMA | Activate DMA channel for source C |
+| 8 | USED | Enable D DMA | Activate DMA channel for destination D |
+| 7–0 | LF7–LF0 | Minterms | Logic function selection (see above) |
 
 When a USEx bit is 0, the corresponding DMA channel is disabled. The Blitter will reuse the last value written to that channel's data register (BLTxDAT). This can be exploited to fill memory with a pattern by writing a value to BLTxDAT via the CPU and then running the Blitter with that channel's DMA disabled.
 
 ### BLTCON1 ($DFF042, write only)
 
-<div class="bit-table">
-<div class="bit-header">
-<span class="bit-num">Bit</span>
-<span class="bit-dir">Name</span>
-<span class="bit-name">Function</span>
-<span class="bit-func">Description</span>
-</div>
-<div class="bit-row"><span class="bit-num">15–12</span><span class="bit-dir">BSH3–BSH0</span><span class="bit-name">Source B shift</span><span class="bit-func">Right-shift amount for source B data (0–15)</span></div>
-<div class="bit-row"><span class="bit-num">11–5</span><span class="bit-dir">—</span><span class="bit-name">Unused</span><span class="bit-func">Must be 0 in copy mode</span></div>
-<div class="bit-row bit-highlight"><span class="bit-num">4</span><span class="bit-dir">EFE</span><span class="bit-name">Exclusive fill</span><span class="bit-func">Enable exclusive fill mode</span></div>
-<div class="bit-row bit-highlight"><span class="bit-num">3</span><span class="bit-dir">IFE</span><span class="bit-name">Inclusive fill</span><span class="bit-func">Enable inclusive fill mode</span></div>
-<div class="bit-row"><span class="bit-num">2</span><span class="bit-dir">FCI</span><span class="bit-name">Fill carry in</span><span class="bit-func">Initial value of fill carry bit</span></div>
-<div class="bit-row bit-highlight"><span class="bit-num">1</span><span class="bit-dir">DESC</span><span class="bit-name">Descending mode</span><span class="bit-func">Process addresses in descending order</span></div>
-<div class="bit-row bit-highlight"><span class="bit-num">0</span><span class="bit-dir">LINE</span><span class="bit-name">Line draw mode</span><span class="bit-func">Enable line drawing mode (must be 0 for copy/fill)</span></div>
-</div>
+| Bit | Name | Function | Description |
+|-----|------|----------|-------------|
+| 15–12 | BSH3–BSH0 | Source B shift | Right-shift amount for source B data (0–15) |
+| 11–5 | — | Unused | Must be 0 in copy mode |
+| 4 | EFE | Exclusive fill | Enable exclusive fill mode |
+| 3 | IFE | Inclusive fill | Enable inclusive fill mode |
+| 2 | FCI | Fill carry in | Initial value of fill carry bit |
+| 1 | DESC | Descending mode | Process addresses in descending order |
+| 0 | LINE | Line draw mode | Enable line drawing mode (must be 0 for copy/fill) |
 
 ### Ascending vs. Descending Mode
 
@@ -218,22 +194,16 @@ The direction from start point to end point is classified into one of **8 octant
 
 Each octant maps to a 3-bit code composed of three control bits:
 
-<div class="bit-table">
-<div class="bit-header">
-<span class="bit-num">Octant</span>
-<span class="bit-dir">Conditions</span>
-<span class="bit-name">SUD/SUL/AUL</span>
-<span class="bit-func">Code</span>
-</div>
-<div class="bit-row"><span class="bit-num">0</span><span class="bit-dir">X1<=X2, Y1<=Y2, dX>=dY</span><span class="bit-name">1/1/0</span><span class="bit-func">6</span></div>
-<div class="bit-row"><span class="bit-num">1</span><span class="bit-dir">X1<=X2, Y1<=Y2, dX<=dY</span><span class="bit-name">0/0/1</span><span class="bit-func">1</span></div>
-<div class="bit-row"><span class="bit-num">2</span><span class="bit-dir">X1>=X2, Y1<=Y2, dX<=dY</span><span class="bit-name">0/1/1</span><span class="bit-func">3</span></div>
-<div class="bit-row"><span class="bit-num">3</span><span class="bit-dir">X1>=X2, Y1<=Y2, dX>=dY</span><span class="bit-name">1/1/1</span><span class="bit-func">7</span></div>
-<div class="bit-row"><span class="bit-num">4</span><span class="bit-dir">X1>=X2, Y1>=Y2, dX>=dY</span><span class="bit-name">1/0/1</span><span class="bit-func">5</span></div>
-<div class="bit-row"><span class="bit-num">5</span><span class="bit-dir">X1>=X2, Y1>=Y2, dX<=dY</span><span class="bit-name">0/1/0</span><span class="bit-func">2</span></div>
-<div class="bit-row"><span class="bit-num">6</span><span class="bit-dir">X1<=X2, Y1>=Y2, dX<=dY</span><span class="bit-name">0/0/0</span><span class="bit-func">0</span></div>
-<div class="bit-row"><span class="bit-num">7</span><span class="bit-dir">X1<=X2, Y1>=Y2, dX>=dY</span><span class="bit-name">1/0/0</span><span class="bit-func">4</span></div>
-</div>
+| Octant | Conditions | SUD/SUL/AUL | Code |
+|--------|-----------|-------------|------|
+| 0 | X1<=X2, Y1<=Y2, dX>=dY | 1/1/0 | 6 |
+| 1 | X1<=X2, Y1<=Y2, dX<=dY | 0/0/1 | 1 |
+| 2 | X1>=X2, Y1<=Y2, dX<=dY | 0/1/1 | 3 |
+| 3 | X1>=X2, Y1<=Y2, dX>=dY | 1/1/1 | 7 |
+| 4 | X1>=X2, Y1>=Y2, dX>=dY | 1/0/1 | 5 |
+| 5 | X1>=X2, Y1>=Y2, dX<=dY | 0/1/0 | 2 |
+| 6 | X1<=X2, Y1>=Y2, dX<=dY | 0/0/0 | 0 |
+| 7 | X1<=X2, Y1>=Y2, dX>=dY | 1/0/0 | 4 |
 
 ### Slope Computation
 

@@ -220,27 +220,21 @@ The CD32 sold reasonably well in Europe but was blocked from the US market by a 
 
 <!-- section: $A01000 "Chipset Comparison" -->
 
-<div class="bit-table compare-table">
-<div class="bit-header">
-<span class="bit-num">Feature</span>
-<span class="bit-dir">OCS (1985)</span>
-<span class="bit-name">ECS (1990)</span>
-<span class="bit-func">AGA (1992)</span>
-</div>
-<div class="bit-row"><span class="bit-num">Max Chip RAM</span><span class="bit-dir">512 KB</span><span class="bit-name">2 MB</span><span class="bit-func">2 MB</span></div>
-<div class="bit-row"><span class="bit-num">Color palette</span><span class="bit-dir">4,096</span><span class="bit-name">4,096</span><span class="bit-func">16.7 million</span></div>
-<div class="bit-row"><span class="bit-num">Colors on screen</span><span class="bit-dir">32 (HAM: 4096)</span><span class="bit-name">32 (HAM: 4096)</span><span class="bit-func">256 (HAM8: 262,144)</span></div>
-<div class="bit-row"><span class="bit-num">Lores</span><span class="bit-dir">320×256</span><span class="bit-name">320×256</span><span class="bit-func">320×256</span></div>
-<div class="bit-row"><span class="bit-num">Hires</span><span class="bit-dir">640×256</span><span class="bit-name">640×256</span><span class="bit-func">640×256</span></div>
-<div class="bit-row"><span class="bit-num">Super Hires</span><span class="bit-dir">—</span><span class="bit-name">1280×256</span><span class="bit-func">1280×256</span></div>
-<div class="bit-row"><span class="bit-num">Productivity</span><span class="bit-dir">—</span><span class="bit-name">640×480i</span><span class="bit-func">640×480i</span></div>
-<div class="bit-row"><span class="bit-num">Bitplanes</span><span class="bit-dir">6</span><span class="bit-name">6</span><span class="bit-func">8</span></div>
-<div class="bit-row"><span class="bit-num">Sprites</span><span class="bit-dir">8 (3 colors)</span><span class="bit-name">8 (3 colors)</span><span class="bit-func">8 (15 colors)</span></div>
-<div class="bit-row"><span class="bit-num">Sprite width</span><span class="bit-dir">16px</span><span class="bit-name">16px</span><span class="bit-func">16/32/64px</span></div>
-<div class="bit-row"><span class="bit-num">Fetch width</span><span class="bit-dir">16-bit</span><span class="bit-name">16-bit</span><span class="bit-func">32/64-bit</span></div>
-<div class="bit-row"><span class="bit-num">Agnus</span><span class="bit-dir">8361/8370</span><span class="bit-name">8372/8375</span><span class="bit-func">Alice (8374)</span></div>
-<div class="bit-row"><span class="bit-num">Denise</span><span class="bit-dir">8362</span><span class="bit-name">8373</span><span class="bit-func">Lisa (4203)</span></div>
-<div class="bit-row"><span class="bit-num">Paula</span><span class="bit-dir">8364</span><span class="bit-name">8364</span><span class="bit-func">8364</span></div>
-</div>
+| Feature | OCS (1985) | ECS (1990) | AGA (1992) |
+|---------|-----------|-----------|-----------|
+| Max Chip RAM | 512 KB | 2 MB | 2 MB |
+| Color palette | 4,096 | 4,096 | 16.7 million |
+| Colors on screen | 32 (HAM: 4096) | 32 (HAM: 4096) | 256 (HAM8: 262,144) |
+| Lores | 320×256 | 320×256 | 320×256 |
+| Hires | 640×256 | 640×256 | 640×256 |
+| Super Hires | — | 1280×256 | 1280×256 |
+| Productivity | — | 640×480i | 640×480i |
+| Bitplanes | 6 | 6 | 8 |
+| Sprites | 8 (3 colors) | 8 (3 colors) | 8 (15 colors) |
+| Sprite width | 16px | 16px | 16/32/64px |
+| Fetch width | 16-bit | 16-bit | 32/64-bit |
+| Agnus | 8361/8370 | 8372/8375 | Alice (8374) |
+| Denise | 8362 | 8373 | Lisa (4203) |
+| Paula | 8364 | 8364 | 8364 |
 
 Paula remained unchanged across all three generations. The audio subsystem — 4 channels of 8-bit DMA-driven PCM — was never upgraded in hardware, which became a growing limitation as 16-bit audio became standard on competing platforms.
