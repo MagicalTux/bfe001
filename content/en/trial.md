@@ -71,7 +71,7 @@ This was the **"Willy Bot"** — an automated trading mechanism that community r
 
 **The prosecution's argument:** The bot created fictitious account balances and was used to purchase bitcoins with money that didn't exist. This was data manipulation — a crime regardless of intent.
 
-**The defense's argument:** The mechanism was an "obligation exchange" (義務交換) — a way to manage a pre-existing BTC debt that I had inherited when I took over the exchange from Jed McCaleb. In late 2010, before my takeover, 80,000 BTC had been stolen and sent to what became the infamous `1Feex` address. This created a deficit on Mt. Gox's books. As Bitcoin's price rose, the gap between what the exchange owed users in BTC and what it actually held widened. The automated system converted this BTC-denominated debt into dollar terms to prevent the exchange from becoming insolvent — a protective measure, not a fraud.
+**The defense's argument:** The mechanism was an "obligation exchange" (義務交換) — a way to manage a pre-existing BTC debt that I had inherited when I took over the exchange from Jed McCaleb. The process had been suggested by Jed himself. In late 2010, before my takeover, 80,000 BTC had been stolen and sent to what became the infamous `1Feex` address. This created a deficit on Mt. Gox's books. As Bitcoin's price rose, the gap between what the exchange owed users in BTC and what it actually held widened unpredictably. The automated system converted this BTC-denominated debt into USD-denominated debt — it did not increase the company's total debt, it simply stabilized it by moving from a volatile asset to a stable one. The defense argued this was a protective measure to keep the exchange solvent for its users, not a fraud.
 
 ### 2. 業務上横領 (Embezzlement)
 
