@@ -114,9 +114,33 @@ The acquittal on the primary charges of embezzlement and breach of trust — in 
 
 The suspended sentence meant no prison time, provided no new offenses were committed during the four-year suspension period.
 
-<!-- section: $AUG015 "Appeals" -->
+<!-- section: $AUG015 "Appeal" -->
 
-I appealed the data manipulation conviction, arguing that the Tokyo District Court had not fully considered the defense arguments regarding the nature and purpose of the trading mechanism.
+I appealed the data manipulation conviction, challenging it on both legal interpretation and factual grounds. The defense raised three core arguments:
+
+### 1. The defendant had full authority over the system
+
+As sole director and sole shareholder of MTGOX Co., Ltd., I held all decision-making authority (全議決権を支配). The trading system was operated by the company, and I — as the company's only decision-making organ — had the authority to determine what records the system produced. Under Japanese criminal law doctrine, "unauthorized creation" (不正作出) of electromagnetic records requires either **(a)** creating records without any authority over the system, or **(b)** a person with limited authority abusing it to create false records. Neither applied: I was not an unauthorized outsider, nor a subordinate abusing limited access — I was the system operator.
+
+Legal scholarship supports this position. Professor Yamaguchi Atsushi (山口厚「刑法各論 第2版」p. 476) states that when the system operator — who can freely determine record contents — creates records, it does not constitute 不正作出, even if the content is fictitious. The legislators who drafted the law also indicated it was intended to cover only unauthorized outsiders or subordinates abusing limited data-entry authority, not system owners acting within their own systems.
+
+### 2. The records were not "false"
+
+The original verdict found that the records showed a USD balance increase that did not correspond to an actual bank deposit, and therefore the records were fictitious. The appeal challenged this interpretation.
+
+The Mt. Gox trading system was built on multiple interconnected database tables, each with its own function. The `User_Wallet` table recorded **the current account balance at a point in time** — it did not represent or certify that a specific bank transfer or Bitcoin transaction had occurred. Those facts were recorded in separate tables. The balance could change for many reasons within the system's internal logic, and the court itself acknowledged this — finding that "it cannot be denied that balances on the trading system could increase or decrease without actual USD deposits."
+
+If the balance record only certifies "current balance" and not "balance caused by a bank deposit," then a balance entry that doesn't correspond to a bank deposit is not inherently false — it accurately reflects the system's internal state.
+
+### 3. The "company's will" cannot be separated from its sole decision-maker
+
+The original verdict convicted on the basis that the actions contradicted "M社の意思" (the company's will). But the court defined this "company's will" as an abstract concept — essentially "what the company should have wanted" based on its terms of service and external obligations — separate from the actual will of the company's decision-making organ.
+
+The appeal argued this was a fundamental error of law. A company's will is determined by its organs (directors, board, shareholders). Whatever decision the organ makes *is* the company's decision — even if that decision is later found to violate laws or contracts. The legality of the decision is a separate question from whether it represents the company's will. The court's approach — treating the company as having a "will" independent of its only director — would create an impossibly broad standard where any business decision that an outside observer deemed inappropriate could be criminalized as data manipulation.
+
+As the brief stated: if the same actions by an individual sole proprietor would not constitute 私電磁的記録不正作出罪, there is no rational basis for criminalizing identical actions simply because they were performed through a one-person company.
+
+### Outcome
 
 **June 11, 2020** — The **Tokyo High Court** (東京高等裁判所) rejected the appeal and upheld the original conviction and sentence.
 
