@@ -31,9 +31,9 @@ I was arrested a third time on additional **embezzlement** charges — alleging 
 
 ### Transfer to Kosuge — December 16, 2015
 
-After four and a half months at Manseibashi, I was transferred to the **Tokyo Detention House** in Kosuge — a large facility in northeastern Tokyo that houses pre-trial detainees and convicted prisoners. This would be my home for the next seven months.
+Conditions at Manseibashi: a solitary cell of roughly seven square meters, lights that never fully turned off, daily interrogations that sometimes lasted up to eight hours. I lost approximately 35 kilograms during my four and a half months there.
 
-Conditions at Kosuge: a solitary cell of roughly seven square meters, lights that never fully turned off, daily interrogations that sometimes lasted up to eight hours. I lost approximately 35 kilograms during my detention.
+After four and a half months at Manseibashi, I was transferred to the **Tokyo Detention House** in Kosuge — a large facility in northeastern Tokyo that houses pre-trial detainees and convicted prisoners. This would be my home for the next seven months. Conditions were somewhat better — I actually gained about 5 kg at Kosuge.
 
 <!-- section: $AUG015 "Fighting from Inside" -->
 
@@ -152,7 +152,7 @@ As the brief stated: if the same actions by an individual sole proprietor would 
 
 **January 27, 2021** — The **Supreme Court** dismissed the final appeal. The conviction became final: 2 years 6 months, suspended for 4 years.
 
-The suspended sentence expired without incident in March 2023.
+The suspended sentence expired without incident in January 2025.
 
 <!-- section: $AUG015 "The Real Thieves" -->
 
