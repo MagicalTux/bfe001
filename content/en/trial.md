@@ -53,9 +53,9 @@ I had entered detention weighing over 100 kg. I left weighing roughly 65 kg.
 
 <!-- section: $AUG015 "Evolving Charges — 2016–2017" -->
 
-Even after my release on bail, the prosecution continued to reshape the case. Through **追起訴** (supplementary indictments) and **起訴変更** (amendments to existing charges), additional counts were filed and the scope of the allegations was revised during 2016 and 2017.
+Even after my release on bail, the prosecution continued to reshape the case. Through **追起訴** (supplementary indictments) and **起訴変更** (amendments to existing charges), additional counts were filed and the scope of the allegations was revised.
 
-Most significantly, the prosecution added a charge of **特別背任** (aggravated breach of trust) under **Companies Act Article 960** — a provision that applies specifically to company directors who act against their company's interests. The allegation was that I, as representative director (代表取締役) of MTGOX Co., Ltd., had diverted company funds to unrelated ventures — specifically the acquisition of **Shade 3D**, a 3D graphics software company, for approximately ¥315 million, as well as approximately ¥6 million in personal expenditures.
+On **March 10, 2017** (平成29年3月10日), the prosecution filed a 罪名及び罰条追加請求書, adding subsidiary charges (予備的訴因). Most significantly, they added a charge of **会社法違反 / 特別背任** (aggravated breach of trust) under **Companies Act Article 960** — a provision that applies specifically to company directors who act against their company's interests. The allegation was that I, as representative director (代表取締役) of MTGOX Co., Ltd., had diverted company funds to unrelated ventures — specifically the acquisition of **Shade 3D**, a 3D graphics software company, for approximately ¥315 million, as well as approximately ¥6 million in personal expenditures.
 
 This charge attacked the same underlying transfers from a different legal angle than the embezzlement charge: where 業務上横領 framed them as stealing customers' money, 特別背任 framed them as a director betraying his duty to the company by misusing corporate resources. This dual-charging approach is a common prosecutorial strategy in Japanese criminal law.
 
@@ -65,13 +65,19 @@ By the time the trial began, the charges had been refined through this indictmen
 
 ### 1. 私電磁的記録不正作出・同供用 (Unauthorized creation of electromagnetic records)
 
-The prosecution alleged that between February and September 2013, I accessed the Mt. Gox trading system and created false records showing that approximately $33.5 million had been deposited into my account when no real deposits had occurred.
+The court found that the events leading to the conviction occurred in three stages:
 
-This was the **"Willy Bot"** — an automated trading mechanism that community researchers had independently identified by analyzing Mt. Gox's trading data. Its existence was not in dispute; the question was whether it constituted a crime.
+**Stage 1 — Bitomat acquisition ($150,000, August 2011):** In August 2011, Tibanne acquired Bitomat, a small Bitcoin exchange that had lost 17,000 BTC due to system bugs. This meant inheriting a 17,000 BTC obligation to users — bitcoins that no longer existed on the blockchain. On August 9, 2011, I entered $150,000 into the MagicalTux account balance to purchase approximately 18,000 BTC from users, then deleted 17,500 BTC from the account. The effect was to convert a BTC-denominated debt (volatile) into a USD-denominated debt (stable).
 
-**The prosecution's argument:** The bot created fictitious account balances and was used to purchase bitcoins with money that didn't exist. This was data manipulation — a crime regardless of intent.
+**Stage 2 — 300,000 BTC increase (November 2011 – April 2012):** In November 2011, a French bank account used by M社 was administratively frozen, making approximately ¥100 million inaccessible. Fearing the company's cash flow would stop, I added 300,000 BTC to the MagicalTux account balance over 8 transactions between November 2011 and April 2012 — bitcoins that did not exist on the blockchain. These were sold to users for approximately $1.3 million, and then deleted from the account.
 
-**The defense's argument:** The mechanism was an "obligation exchange" (義務交換) — a way to manage a pre-existing BTC debt that I had inherited when I took over the exchange from Jed McCaleb. The process had been suggested by Jed himself. In late 2010, before my takeover, 80,000 BTC had been stolen and sent to what became the infamous `1Feex` address. This created a deficit on Mt. Gox's books. As Bitcoin's price rose, the gap between what the exchange owed users in BTC and what it actually held widened unpredictably. The automated system converted this BTC-denominated debt into USD-denominated debt — it did not increase the company's total debt, it simply stabilized it by moving from a volatile asset to a stable one. The defense argued this was a protective measure to keep the exchange solvent for its users, not a fraud.
+**Stage 3 — $33.5 million increase (February – September 2013):** As a result of the 300,000 BTC increase, non-existent bitcoins were now circulating among users on the trading system. To "recover" these 300,000 BTC, I entered a total of $33.5 million into the account balance over 21 transactions between February 14 and September 27, 2013, purchased approximately 300,000 BTC from users for roughly $29.77 million, and deleted them from the account.
+
+This third stage — the $33.5 million — was the specific act for which I was convicted. Community researchers independently identified the trading pattern and named it the **"Willy Bot."** Its existence was not in dispute; the question was whether it constituted a crime.
+
+**The prosecution's argument:** The entries created fictitious account balances and were used to purchase bitcoins with money that didn't exist. This was data manipulation — a crime regardless of intent.
+
+**The defense's argument:** The mechanism was an "obligation exchange" (義務交換) — a way to manage pre-existing BTC debts inherited from before and during the early operation of the exchange. The process had been suggested by Jed McCaleb himself. In late 2010, before my takeover, 80,000 BTC had been stolen and sent to what became the infamous `1Feex` address. The Bitomat acquisition added another 17,000 BTC of phantom debt. As Bitcoin's price rose, the gap between what the exchange owed users in BTC and what it actually held widened unpredictably. The automated system converted this BTC-denominated debt into USD-denominated debt — it did not increase the company's total debt, it simply stabilized it by moving from a volatile asset to a stable one. The defense argued this was a protective measure to keep the exchange solvent for its users, not a fraud.
 
 ### 2. 業務上横領 (Embezzlement)
 
@@ -106,7 +112,7 @@ Judge Nakayama delivered the verdict on March 15, 2019.
 
 On the data manipulation charge, the judge ruled that inflating account balances — regardless of intent — constituted unauthorized creation of electromagnetic records. The court found the conduct "eroded the credibility of crypto exchanges" and that there was "no justification for such an abuse of information."
 
-On the embezzlement charge, the judge ruled in my favor. The transfers between personal and company accounts constituted a loan relationship, not theft. The court noted that Mt. Gox "lacked an efficient accounting system for when company executives borrowed money from the company," making it impossible to establish that the transfers were embezzlement.
+On the embezzlement charges, the judge ruled in my favor on multiple grounds. First, the court found that funds deposited by users into M社's designated bank accounts **belonged to M社**, not to the users directly — rejecting the prosecution's primary theory that I had stolen customers' money. Second, even treating the transfers as movements of company funds, the court found they were properly accounted for as **short-term loans** (短期貸付金). The company's tax accountant testified that in small owner-operated companies without accounting staff, formal loan agreements are rarely drawn up. I had been paying company expenses through personal credit cards — by March 2014, Tibanne owed me ¥115 million in outstanding short-term loans. Given M社's rapidly growing revenue (¥962 million in September 2013, ¥4.97 billion in November, ¥5.35 billion in December), the court found there was a realistic possibility of repayment. The transfers were loans, not embezzlement.
 
 On the aggravated breach of trust charge (特別背任), the court found insufficient evidence of intent to damage the company. Regarding the Shade 3D acquisition specifically, the judge ruled that the investment could be viewed as potentially profitable for the company — it was a reasonable business decision for a director to make, not a betrayal of fiduciary duty.
 
