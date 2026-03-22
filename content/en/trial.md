@@ -11,27 +11,27 @@ The criminal case against me, however, was not about the missing bitcoins. The p
 
 <!-- section: $AUG015 "Arrest — August 1, 2015" -->
 
-At 5:00 AM on August 1, 2015, officers from the Tokyo Metropolitan Police Cyber Crime Division arrived at my home and placed me under arrest. The initial charge was **私電磁的記録不正作出・同供用** (unauthorized creation and use of private electromagnetic records, Article 161-2 of the Penal Code). The allegation: that I had accessed the Mt. Gox trading system and manipulated data to inflate my own account balance.
+At 5:00 AM on August 1, 2015, officers from the Tokyo Metropolitan Police Cyber Crime Division arrived at my home and placed me under arrest. The initial charge was **unauthorized creation and use of private electromagnetic records** (Penal Code Article 161-2). The allegation: that I had accessed the Mt. Gox trading system and manipulated data to inflate my own account balance.
 
-I was taken to **Manseibashi Police Station** (万世橋警察署), near Akihabara — a small police station that would be my home for the next four and a half months.
+I was taken to **Manseibashi Police Station**, near Akihabara — a small police station that would be my home for the next four and a half months.
 
 ### Re-arrest — August 21, 2015
 
-Twenty days later, before the initial detention period expired, I was **re-arrested** on a second charge: **業務上横領** (embezzlement in the course of business). The allegation was that I had embezzled approximately ¥321 million (~$2.6 million) of customer deposits from the Mt. Gox bank account.
+Twenty days later, before the initial detention period expired, I was **re-arrested** on a second charge: **embezzlement in the course of business**. The allegation was that I had embezzled approximately ¥321 million (~$2.6 million) of customer deposits from the Mt. Gox bank account.
 
-In the Japanese system, re-arrest (再逮捕) is a common prosecution tactic. Each arrest resets the detention clock, allowing the police to hold a suspect for up to 23 days before they must either charge or release. By re-arresting on new charges, the prosecution can extend pre-trial detention indefinitely — a practice that has drawn international criticism as **"hostage justice"** (人質司法).
+In the Japanese system, re-arrest is a common prosecution tactic. Each arrest resets the detention clock, allowing the police to hold a suspect for up to 23 days before they must either charge or release. By re-arresting on new charges, the prosecution can extend pre-trial detention indefinitely — a practice that has drawn international criticism as **"hostage justice."**
 
 ### Indictment — September 11, 2015
 
-The Tokyo District Public Prosecutors Office formally indicted me (起訴) on the embezzlement charge.
+The Tokyo District Public Prosecutors Office formally indicted me on the embezzlement charge.
 
 ### Third Arrest — Late October 2015
 
-I was arrested a third time on additional **業務上横領** charges — alleging that on three separate occasions between September and December 2013, I had transferred funds from the company bank account to my personal account, totaling approximately ¥20 million.
+I was arrested a third time on additional **embezzlement** charges — alleging that on three separate occasions between September and December 2013, I had transferred funds from the company bank account to my personal account, totaling approximately ¥20 million.
 
 ### Transfer to Kosuge — December 16, 2015
 
-After four and a half months at Manseibashi, I was transferred to the **Tokyo Detention House** (東京拘置所) in Kosuge (小菅) — a large facility in northeastern Tokyo that houses pre-trial detainees and convicted prisoners. This would be my home for the next seven months.
+After four and a half months at Manseibashi, I was transferred to the **Tokyo Detention House** in Kosuge — a large facility in northeastern Tokyo that houses pre-trial detainees and convicted prisoners. This would be my home for the next seven months.
 
 Conditions at Kosuge: a solitary cell of roughly seven square meters, lights that never fully turned off, daily interrogations that sometimes lasted up to eight hours. I lost approximately 35 kilograms during my detention.
 
@@ -53,23 +53,23 @@ I had entered detention weighing over 100 kg. I left weighing roughly 65 kg.
 
 <!-- section: $AUG015 "Evolving Charges — 2016–2017" -->
 
-Even after my release on bail, the prosecution continued to reshape the case. Through **追起訴** (supplementary indictments) and **起訴変更** (amendments to existing charges), additional counts were filed and the scope of the allegations was revised.
+Even after my release on bail, the prosecution continued to reshape the case. Through supplementary indictments and amendments to existing charges, additional counts were filed and the scope of the allegations was revised.
 
-On **March 10, 2017** (平成29年3月10日), the prosecution filed a 罪名及び罰条追加請求書, adding subsidiary charges (予備的訴因). Most significantly, they added a charge of **会社法違反 / 特別背任** (aggravated breach of trust) under **Companies Act Article 960** — a provision that applies specifically to company directors who act against their company's interests. The allegation was that I, as representative director (代表取締役) of MTGOX Co., Ltd., had diverted company funds to unrelated ventures — specifically the acquisition of **Shade 3D**, a 3D graphics software company, for approximately ¥315 million, as well as approximately ¥6 million in personal expenditures.
+On **March 10, 2017**, the prosecution filed a request to add subsidiary charges. Most significantly, they added a charge of **aggravated breach of trust** under **Companies Act Article 960** — a provision that applies specifically to company directors who act against their company's interests. The allegation was that I, as representative director of MTGOX Co., Ltd., had diverted company funds to unrelated ventures — specifically the acquisition of **Shade 3D**, a 3D graphics software company, for approximately ¥315 million, as well as approximately ¥6 million in personal expenditures.
 
-This charge attacked the same underlying transfers from a different legal angle than the embezzlement charge: where 業務上横領 framed them as stealing customers' money, 特別背任 framed them as a director betraying his duty to the company by misusing corporate resources. This dual-charging approach is a common prosecutorial strategy in Japanese criminal law.
+This charge attacked the same underlying transfers from a different legal angle than the embezzlement charge: where embezzlement framed them as stealing customers' money, breach of trust framed them as a director betraying his duty to the company by misusing corporate resources. This dual-charging approach is a common prosecutorial strategy in Japanese criminal law.
 
 <!-- section: $AUG015 "The Charges at Trial" -->
 
 By the time the trial began, the charges had been refined through this indictment process. Two categories of charges went before the court:
 
-### 1. 私電磁的記録不正作出・同供用 (Unauthorized creation of electromagnetic records)
+### 1. Unauthorized creation of electromagnetic records
 
 The court found that the events leading to the conviction occurred in three stages:
 
 **Stage 1 — Bitomat acquisition ($150,000, August 2011):** In August 2011, Tibanne acquired Bitomat, a small Bitcoin exchange that had lost 17,000 BTC due to system bugs. This meant inheriting a 17,000 BTC obligation to users — bitcoins that no longer existed on the blockchain. On August 9, 2011, I entered $150,000 into the MagicalTux account balance to purchase approximately 18,000 BTC from users, then deleted 17,500 BTC from the account. The effect was to convert a BTC-denominated debt (volatile) into a USD-denominated debt (stable).
 
-**Stage 2 — 300,000 BTC increase (November 2011 – April 2012):** In November 2011, a French bank account used by M社 was administratively frozen, making approximately ¥100 million inaccessible. Fearing the company's cash flow would stop, I added 300,000 BTC to the MagicalTux account balance over 8 transactions between November 2011 and April 2012 — bitcoins that did not exist on the blockchain. These were sold to users for approximately $1.3 million, and then deleted from the account.
+**Stage 2 — 300,000 BTC increase (November 2011 – April 2012):** In November 2011, a French bank account used by MTGOX Co., Ltd. was administratively frozen, making approximately ¥100 million inaccessible. Fearing the company's cash flow would stop, I added 300,000 BTC to the MagicalTux account balance over 8 transactions between November 2011 and April 2012 — bitcoins that did not exist on the blockchain. These were sold to users for approximately $1.3 million, and then deleted from the account.
 
 **Stage 3 — $33.5 million increase (February – September 2013):** As a result of the 300,000 BTC increase, non-existent bitcoins were now circulating among users on the trading system. To "recover" these 300,000 BTC, I entered a total of $33.5 million into the account balance over 21 transactions between February 14 and September 27, 2013, purchased approximately 300,000 BTC from users for roughly $29.77 million, and deleted them from the account.
 
@@ -77,9 +77,9 @@ This third stage — the $33.5 million — was the specific act for which I was 
 
 **The prosecution's argument:** The entries created fictitious account balances and were used to purchase bitcoins with money that didn't exist. This was data manipulation — a crime regardless of intent.
 
-**The defense's argument:** The mechanism was an "obligation exchange" (義務交換) — a way to manage pre-existing BTC debts inherited from before and during the early operation of the exchange. The process had been suggested by Jed McCaleb himself. In late 2010, before my takeover, 80,000 BTC had been stolen and sent to what became the infamous `1Feex` address. The Bitomat acquisition added another 17,000 BTC of phantom debt. As Bitcoin's price rose, the gap between what the exchange owed users in BTC and what it actually held widened unpredictably. The automated system converted this BTC-denominated debt into USD-denominated debt — it did not increase the company's total debt, it simply stabilized it by moving from a volatile asset to a stable one. The defense argued this was a protective measure to keep the exchange solvent for its users, not a fraud.
+**The defense's argument:** The mechanism was an "obligation exchange" — a way to manage pre-existing BTC debts inherited from before and during the early operation of the exchange. The process had been suggested by Jed McCaleb himself. In late 2010, before my takeover, 80,000 BTC had been stolen and sent to what became the infamous `1Feex` address. The Bitomat acquisition added another 17,000 BTC of phantom debt. As Bitcoin's price rose, the gap between what the exchange owed users in BTC and what it actually held widened unpredictably. The automated system converted this BTC-denominated debt into USD-denominated debt — it did not increase the company's total debt, it simply stabilized it by moving from a volatile asset to a stable one. The defense argued this was a protective measure to keep the exchange solvent for its users, not a fraud.
 
-### 2. 業務上横領 (Embezzlement)
+### 2. Embezzlement
 
 The prosecution alleged that between September and December 2013, I transferred approximately ¥341 million of customer deposits from Mt. Gox's bank account to my personal account for personal use.
 
@@ -87,13 +87,13 @@ The prosecution alleged that between September and December 2013, I transferred 
 
 <!-- section: $AUG015 "Trial — July 2017 to March 2019" -->
 
-The trial opened on **July 11, 2017** at the Tokyo District Court before Judge **Nakayama Tomoyuki** (中山大行). The courtroom seated only 39 people; over 100 journalists and observers competed via lottery for 21 public seats.
+The trial opened on **July 11, 2017** at the Tokyo District Court before Judge **Nakayama Tomoyuki**. The courtroom seated only 39 people; over 100 journalists and observers competed via lottery for 21 public seats.
 
 I pleaded not guilty to all charges.
 
 The trial extended over multiple hearings across nearly two years. The prosecution presented evidence and called witnesses; the defense challenged the financial analysis and argued that the prosecution fundamentally misunderstood how a cryptocurrency exchange operated.
 
-**December 12, 2018** — The prosecution delivered its closing arguments and requested a sentence of **10 years imprisonment** (懲役10年).
+**December 12, 2018** — The prosecution delivered its closing arguments and requested a sentence of **10 years imprisonment**.
 
 **December 27, 2018** — I made my final statement to the court, maintaining my innocence while apologizing for the bankruptcy and its impact on users.
 
@@ -103,18 +103,18 @@ Judge Nakayama delivered the verdict on March 15, 2019.
 
 <div class="register-block">
 <div class="reg-title">Verdict</div>
-<div class="reg-row"><span class="reg-field">私電磁的記録不正作出</span><span class="reg-val"><span class="highlight">Guilty</span> — manipulation of electromagnetic records</span></div>
-<div class="reg-row"><span class="reg-field">業務上横領</span><span class="reg-val">Not Guilty — embezzlement</span></div>
-<div class="reg-row"><span class="reg-field">特別背任</span><span class="reg-val">Not Guilty — aggravated breach of trust</span></div>
-<div class="reg-row"><span class="reg-field">Sentence</span><span class="reg-val">懲役2年6月、執行猶予4年 — 2.5 years, suspended for 4 years</span></div>
+<div class="reg-row"><span class="reg-field">Data manipulation</span><span class="reg-val"><span class="highlight">Guilty</span> — unauthorized creation of electromagnetic records</span></div>
+<div class="reg-row"><span class="reg-field">Embezzlement</span><span class="reg-val">Not Guilty</span></div>
+<div class="reg-row"><span class="reg-field">Breach of trust</span><span class="reg-val">Not Guilty — aggravated breach of trust (Companies Act)</span></div>
+<div class="reg-row"><span class="reg-field">Sentence</span><span class="reg-val">2 years 6 months, suspended for 4 years</span></div>
 <div class="reg-row"><span class="reg-field">Prosecution request</span><span class="reg-val">10 years imprisonment</span></div>
 </div>
 
 On the data manipulation charge, the judge ruled that inflating account balances — regardless of intent — constituted unauthorized creation of electromagnetic records. The court found the conduct "eroded the credibility of crypto exchanges" and that there was "no justification for such an abuse of information."
 
-On the embezzlement charges, the judge ruled in my favor on multiple grounds. First, the court found that funds deposited by users into M社's designated bank accounts **belonged to M社**, not to the users directly — rejecting the prosecution's primary theory that I had stolen customers' money. Second, even treating the transfers as movements of company funds, the court found they were properly accounted for as **short-term loans** (短期貸付金). The company's tax accountant testified that in small owner-operated companies without accounting staff, formal loan agreements are rarely drawn up. I had been paying company expenses through personal credit cards — by March 2014, Tibanne owed me ¥115 million in outstanding short-term loans. Given M社's rapidly growing revenue (¥962 million in September 2013, ¥4.97 billion in November, ¥5.35 billion in December), the court found there was a realistic possibility of repayment. The transfers were loans, not embezzlement.
+On the embezzlement charges, the judge ruled in my favor on multiple grounds. First, the court found that funds deposited by users into MTGOX Co., Ltd.'s designated bank accounts **belonged to MTGOX Co., Ltd.**, not to the users directly — rejecting the prosecution's primary theory that I had stolen customers' money. Second, even treating the transfers as movements of company funds, the court found they were properly accounted for as **short-term loans**. The company's tax accountant testified that in small owner-operated companies without accounting staff, formal loan agreements are rarely drawn up. I had been paying company expenses through personal credit cards — by March 2014, Tibanne owed me ¥115 million in outstanding short-term loans. Given MTGOX Co., Ltd.'s rapidly growing revenue (¥962 million in September 2013, ¥4.97 billion in November, ¥5.35 billion in December), the court found there was a realistic possibility of repayment. The transfers were loans, not embezzlement.
 
-On the aggravated breach of trust charge (特別背任), the court found insufficient evidence of intent to damage the company. Regarding the Shade 3D acquisition specifically, the judge ruled that the investment could be viewed as potentially profitable for the company — it was a reasonable business decision for a director to make, not a betrayal of fiduciary duty.
+On the aggravated breach of trust charge, the court found insufficient evidence of intent to damage the company. Regarding the Shade 3D acquisition specifically, the judge ruled that the investment could be viewed as potentially profitable for the company — it was a reasonable business decision for a director to make, not a betrayal of fiduciary duty.
 
 The acquittal on the primary charges of embezzlement and breach of trust — in a system where the conviction rate after indictment exceeds 99% — was as close to vindication as the Japanese legal system typically allows. The prosecution did not appeal the acquittals — itself an unusual outcome, as Japanese prosecutors routinely appeal not-guilty verdicts.
 
@@ -126,9 +126,9 @@ I appealed the data manipulation conviction, challenging it on both legal interp
 
 ### 1. The defendant had full authority over the system
 
-As sole director and sole shareholder of MTGOX Co., Ltd., I held all decision-making authority (全議決権を支配). The trading system was operated by the company, and I — as the company's only decision-making organ — had the authority to determine what records the system produced. Under Japanese criminal law doctrine, "unauthorized creation" (不正作出) of electromagnetic records requires either **(a)** creating records without any authority over the system, or **(b)** a person with limited authority abusing it to create false records. Neither applied: I was not an unauthorized outsider, nor a subordinate abusing limited access — I was the system operator.
+As sole director and sole shareholder of MTGOX Co., Ltd., I held all decision-making authority. The trading system was operated by the company, and I — as the company's only decision-making organ — had the authority to determine what records the system produced. Under Japanese criminal law doctrine, "unauthorized creation" of electromagnetic records requires either **(a)** creating records without any authority over the system, or **(b)** a person with limited authority abusing it to create false records. Neither applied: I was not an unauthorized outsider, nor a subordinate abusing limited access — I was the system operator.
 
-Legal scholarship supports this position. Professor Yamaguchi Atsushi (山口厚「刑法各論 第2版」p. 476) states that when the system operator — who can freely determine record contents — creates records, it does not constitute 不正作出, even if the content is fictitious. The legislators who drafted the law also indicated it was intended to cover only unauthorized outsiders or subordinates abusing limited data-entry authority, not system owners acting within their own systems.
+Legal scholarship supports this position. Leading commentators on criminal law state that when the system operator — who can freely determine record contents — creates records, it does not constitute unauthorized creation, even if the content is fictitious. The legislators who drafted the law also indicated it was intended to cover only unauthorized outsiders or subordinates abusing limited data-entry authority, not system owners acting within their own systems.
 
 ### 2. The records were not "false"
 
@@ -140,17 +140,17 @@ If the balance record only certifies "current balance" and not "balance caused b
 
 ### 3. The "company's will" cannot be separated from its sole decision-maker
 
-The original verdict convicted on the basis that the actions contradicted "M社の意思" (the company's will). But the court defined this "company's will" as an abstract concept — essentially "what the company should have wanted" based on its terms of service and external obligations — separate from the actual will of the company's decision-making organ.
+The original verdict convicted on the basis that the actions contradicted "the company's will." But the court defined this as an abstract concept — essentially "what the company should have wanted" based on its terms of service and external obligations — separate from the actual will of the company's decision-making organ.
 
 The appeal argued this was a fundamental error of law. A company's will is determined by its organs (directors, board, shareholders). Whatever decision the organ makes *is* the company's decision — even if that decision is later found to violate laws or contracts. The legality of the decision is a separate question from whether it represents the company's will. The court's approach — treating the company as having a "will" independent of its only director — would create an impossibly broad standard where any business decision that an outside observer deemed inappropriate could be criminalized as data manipulation.
 
-As the brief stated: if the same actions by an individual sole proprietor would not constitute 私電磁的記録不正作出罪, there is no rational basis for criminalizing identical actions simply because they were performed through a one-person company.
+As the brief stated: if the same actions by an individual sole proprietor would not constitute a crime, there is no rational basis for criminalizing identical actions simply because they were performed through a one-person company.
 
 ### Outcome
 
-**June 11, 2020** — The **Tokyo High Court** (東京高等裁判所) rejected the appeal and upheld the original conviction and sentence.
+**June 11, 2020** — The **Tokyo High Court** rejected the appeal and upheld the original conviction and sentence.
 
-**January 27, 2021** — The **Supreme Court** (最高裁判所) dismissed the final appeal. The conviction became final (確定): 懲役2年6月、執行猶予4年.
+**January 27, 2021** — The **Supreme Court** dismissed the final appeal. The conviction became final: 2 years 6 months, suspended for 4 years.
 
 The suspended sentence expired without incident in March 2023.
 
@@ -170,7 +170,7 @@ In parallel with the criminal case, the question of what happened to the credito
 
 Under Japanese bankruptcy law, creditor claims were valued in yen at the date of filing — February 2014, when Bitcoin traded around $400. By 2017–2018, Bitcoin's price had risen to $10,000–$20,000, meaning the approximately 200,000 BTC recovered in cold wallets were now worth far more than the total claims. Under bankruptcy rules, the surplus would go to the shareholder — which was me, through Tibanne.
 
-In April 2018, I posted an open letter on Reddit: I did not want that money. I advocated for **civil rehabilitation** (民事再生), a process under Japanese law where creditors would receive their fair share at current market value rather than being capped at the 2014 yen valuation.
+In April 2018, I posted an open letter on Reddit: I did not want that money. I advocated for **civil rehabilitation**, a process under Japanese law where creditors would receive their fair share at current market value rather than being capped at the 2014 yen valuation.
 
 In June 2018, the Tokyo District Court approved the conversion from bankruptcy to civil rehabilitation.
 
@@ -182,7 +182,7 @@ The conviction on the data manipulation charge rests on legally questionable gro
 
 On the facts, the three-stage sequence makes clear this was not self-enrichment. The verdict itself found I gained no personal economic benefit. I was converting volatile BTC debt into stable USD debt — first to handle the inherited Bitomat deficit, then to manage a cash flow crisis caused by a frozen bank account, then to recover the resulting phantom bitcoins from circulation. These were crisis management decisions made under extreme pressure to keep the exchange running for its users.
 
-The embezzlement acquittal — and the prosecution's unusual decision not to appeal it — implicitly acknowledges the core of the case was weak. The court got that part right: the transfers were loans, M社's revenue was growing rapidly, and repayment was realistic.
+The embezzlement acquittal — and the prosecution's unusual decision not to appeal it — implicitly acknowledges the core of the case was weak. The court got that part right: the transfers were loans, MTGOX Co., Ltd.'s revenue was growing rapidly, and repayment was realistic.
 
 The concealment — modifying account data when an employee noticed, later spreading entries across multiple accounts — undercut the "legitimate business decision" framing. If the mechanism was truly above-board, why hide it? But operating quietly to avoid a bank run is different from operating secretly to commit fraud. And "looks bad" should not be sufficient for criminal liability when the defendant had full authority over the system, gained nothing personally, and was trying to keep the company solvent for its users.
 
