@@ -110,7 +110,7 @@ On the embezzlement charge, the judge ruled in my favor. The transfers between p
 
 On the aggravated breach of trust charge (特別背任), the court found insufficient evidence of intent to damage the company. Regarding the Shade 3D acquisition specifically, the judge ruled that the investment could be viewed as potentially profitable for the company — it was a reasonable business decision for a director to make, not a betrayal of fiduciary duty.
 
-The acquittal on the primary charges of embezzlement and breach of trust — in a system where the conviction rate after indictment exceeds 99% — was as close to vindication as the Japanese legal system typically allows. The prosecution did not appeal the acquittals.
+The acquittal on the primary charges of embezzlement and breach of trust — in a system where the conviction rate after indictment exceeds 99% — was as close to vindication as the Japanese legal system typically allows. The prosecution did not appeal the acquittals — itself an unusual outcome, as Japanese prosecutors routinely appeal not-guilty verdicts.
 
 The suspended sentence meant no prison time, provided no new offenses were committed during the four-year suspension period.
 
