@@ -229,6 +229,19 @@ def build_lang(env, lang, languages, all_pages):
         out_dir / "amiga.html",
     )
 
+    # --- Trial page ---
+    trial_md = lang_dir / "trial.md"
+    if trial_md.exists():
+        meta, body = load_markdown_file(trial_md)
+        sections = split_sections(body)
+        build_page(
+            env,
+            "page.html",
+            {**common, **meta, "sections": sections, "active_page": "timeline",
+             "hreflangs": hreflang_links("trial", all_pages)},
+            out_dir / "trial.html",
+        )
+
     # --- Timeline page ---
     timeline_dir = lang_dir / "timeline"
     intro_meta, intro_body = load_markdown_file(timeline_dir / "_intro.md")
@@ -283,7 +296,7 @@ def collect_page_paths(languages):
         prefix = "" if lang == DEFAULT_LANG else f"{lang}/"
 
         # Main pages
-        for page_name in ("index", "mind", "amiga", "timeline"):
+        for page_name in ("index", "mind", "amiga", "trial", "timeline"):
             md = lang_dir / f"{page_name}.md"
             if page_name == "timeline":
                 md = lang_dir / "timeline" / "_intro.md"
