@@ -9,4 +9,6 @@ manipulation of electronic data — sentenced to 2.5 years, suspended
 for four. The prosecution had requested ten. In a system where the
 conviction rate exceeds 99%, a suspended sentence with acquittal on
 the primary charges was as close to vindication as the Japanese legal
-system typically allows. [Full trial details →](trial.html)
+system typically allows.
+
+<a href="trial.html" class="deep-link">Read full trial details</a>

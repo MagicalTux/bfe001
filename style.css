@@ -1094,6 +1094,31 @@ section.visible {
     border: 1px solid rgba(240, 165, 0, 0.1);
 }
 
+/* Deep-dive link — used in timeline entries */
+.deep-link {
+    display: inline-block;
+    margin-top: 12px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    color: var(--amber-dim);
+    text-decoration: none;
+    border: 1px solid var(--border);
+    padding: 6px 14px;
+    border-radius: 3px;
+    transition: color 0.2s, border-color 0.2s, background 0.15s;
+}
+
+.deep-link:hover {
+    color: var(--amber);
+    border-color: var(--amber-dim);
+    background: var(--bg-surface);
+}
+
+.deep-link::after {
+    content: ' →';
+}
+
 /* ═══════════════════════════════════════════
    COGNITIVE MAP
    ═══════════════════════════════════════════ */
