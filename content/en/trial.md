@@ -175,3 +175,15 @@ In April 2018, I posted an open letter on Reddit: I did not want that money. I a
 In June 2018, the Tokyo District Court approved the conversion from bankruptcy to civil rehabilitation.
 
 In 2024 — over ten years after the bankruptcy filing — creditor repayments finally began. Bitcoin and Bitcoin Cash distributions started flowing to creditors through designated exchanges. The process that began with 850,000 missing bitcoins was reaching its conclusion.
+
+<!-- section: $AUG015 "Looking Back" -->
+
+The conviction on the data manipulation charge rests on legally questionable ground. The court constructed an abstract "company's will" separate from the actual will of the sole director and sole shareholder — the only person who constituted the company's decision-making organ. In Japanese corporate law, the decision-making organ's decision *is* the company's decision. The court instead defined the company's will as what it "should have wanted" based on its terms of service and external obligations, then found the actions contradicted that abstraction. As the defense argued, this standard creates an incoherent distinction: a sole proprietor performing the same actions would not be criminally liable, but performing them through a one-person company suddenly becomes a crime.
+
+On the facts, the three-stage sequence makes clear this was not self-enrichment. The verdict itself found I gained no personal economic benefit. I was converting volatile BTC debt into stable USD debt — first to handle the inherited Bitomat deficit, then to manage a cash flow crisis caused by a frozen bank account, then to recover the resulting phantom bitcoins from circulation. These were crisis management decisions made under extreme pressure to keep the exchange running for its users.
+
+The embezzlement acquittal — and the prosecution's unusual decision not to appeal it — implicitly acknowledges the core of the case was weak. The court got that part right: the transfers were loans, M社's revenue was growing rapidly, and repayment was realistic.
+
+The concealment — modifying account data when an employee noticed, later spreading entries across multiple accounts — undercut the "legitimate business decision" framing. If the mechanism was truly above-board, why hide it? But operating quietly to avoid a bank run is different from operating secretly to commit fraud. And "looks bad" should not be sufficient for criminal liability when the defendant had full authority over the system, gained nothing personally, and was trying to keep the company solvent for its users.
+
+The suspended sentence — 2.5 years against a requested 10 — suggests the court itself was not fully comfortable with the conviction. The case ultimately highlights a gap in Japanese criminal law: statutes written for document forgery and unauthorized computer access were applied to the novel question of what a cryptocurrency exchange operator can and cannot do within their own system. That question still has no clear answer.
