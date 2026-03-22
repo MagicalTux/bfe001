@@ -31,9 +31,9 @@ I was arrested a third time on additional **embezzlement** charges — alleging 
 
 ### Transfer to Kosuge — December 16, 2015
 
-Conditions at Manseibashi: a solitary cell of roughly seven square meters, lights that never fully turned off, daily interrogations that sometimes lasted up to eight hours. I lost approximately 35 kilograms during my four and a half months there.
+Manseibashi was a small police station with shared cells — I was held alongside a yakuza who received visits from his wife and child, people involved in drug trade, and various others. During the active arrest periods (August 1 to September 11, and another roughly 20 days after the later re-arrest), daily interrogations sometimes lasted up to eight hours. I lost approximately 35 kilograms during my four and a half months there.
 
-After four and a half months at Manseibashi, I was transferred to the **Tokyo Detention House** in Kosuge — a large facility in northeastern Tokyo that houses pre-trial detainees and convicted prisoners. This would be my home for the next seven months. Conditions were somewhat better — I actually gained about 5 kg at Kosuge.
+After four and a half months at Manseibashi, I was transferred to the **Tokyo Detention House** in Kosuge — a large facility in northeastern Tokyo that houses pre-trial detainees and convicted prisoners. This would be my home for the next seven months. Kosuge was a fully solitary environment — a cell of roughly seven square meters, lights that never fully turned off. But the interrogations had stopped, and I actually gained about 5 kg there.
 
 <!-- section: $AUG015 "Fighting from Inside" -->
 
