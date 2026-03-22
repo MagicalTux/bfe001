@@ -33,6 +33,8 @@ I was arrested a third time on additional **embezzlement** charges — alleging 
 
 Manseibashi was a small police station with shared cells — I was held alongside a yakuza who received visits from his wife and child, people involved in drug trade, and various others. During the active arrest periods (August 1 to September 11, and another roughly 20 days after the later re-arrest), daily interrogations sometimes lasted up to eight hours. I lost approximately 35 kilograms during my four and a half months there.
 
+Because I did not admit to the charges, I was placed under a contact ban — forbidden from receiving visits or sending and receiving letters, on the grounds of "risk of destruction of evidence." In the Japanese detention system, there are no phone calls. The only means of outside contact are visits (time-limited, with a guard present) and letters (read and screened in both directions by the authorities). Both were denied to me. This is standard treatment in Japan for anyone who does not confess — another facet of what critics call hostage justice.
+
 After four and a half months at Manseibashi, I was transferred to the **Tokyo Detention House** in Kosuge — a large facility in northeastern Tokyo that houses pre-trial detainees and convicted prisoners. This would be my home for the next seven months. Kosuge was a fully solitary environment — a cell of roughly seven square meters, lights that never fully turned off. But the interrogations had stopped, and I actually gained about 5 kg there.
 
 <!-- section: $AUG015 "Fighting from Inside" -->
