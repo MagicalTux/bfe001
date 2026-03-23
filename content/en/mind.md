@@ -13,12 +13,17 @@ my former employees from a decade ago were black, but I didn't know who that
 was until I was told their names. My brain simply doesn't store visual
 appearance as a retrieval key.
 
-This has a name: **hypophantasia**—a low-imagery cognitive style. You can measure where you fall on the spectrum with the <a href="vviq2.html" class="deep-link">VVIQ2 test</a>
-If you ask me to imagine a red apple, I can somehow picture the stem on top,
-the bottom indent. But the whole apple? A red circle at best. Organic shapes
-collapse into simple geometry. Technical objects—a computer, a house,
-a lock mechanism—I can rotate freely in my mind, but they appear as
-wireframes: structure without texture.
+This has a name: **aphantasia** — the inability to voluntarily form mental
+images. I scored 19 out of 160 on the VVIQ (well below the 32 threshold),
+which surprised even me — I had assumed I was merely low-imagery, but it
+turns out the mind's eye is almost entirely dark. You can measure where you
+fall on the spectrum with the <a href="vviq2.html" class="deep-link">VVIQ2 test</a>
+
+If you ask me to imagine a red apple, I can somehow sense the stem on top,
+the bottom indent. But I don't *see* it. Organic shapes
+collapse into abstract spatial knowledge. Technical objects — a computer, a house,
+a lock mechanism — I can reason about freely in my mind, but they appear as
+wireframes: structure without texture, if they appear at all.
 
 <div class="pullquote">
 My brain represents the world as structure, relationships, and spatial maps—not
