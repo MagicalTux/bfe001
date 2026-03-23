@@ -13,7 +13,7 @@ my former employees from a decade ago were black, but I didn't know who that
 was until I was told their names. My brain simply doesn't store visual
 appearance as a retrieval key.
 
-This has a name: **hypophantasia**—a low-imagery cognitive style.
+This has a name: **hypophantasia**—a low-imagery cognitive style. You can measure where you fall on the spectrum with the <a href="vviq2.html" class="deep-link">VVIQ2 test</a>
 If you ask me to imagine a red apple, I can somehow picture the stem on top,
 the bottom indent. But the whole apple? A red circle at best. Organic shapes
 collapse into simple geometry. Technical objects—a computer, a house,

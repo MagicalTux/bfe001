@@ -229,6 +229,19 @@ def build_lang(env, lang, languages, all_pages):
         out_dir / "amiga.html",
     )
 
+    # --- VVIQ page ---
+    vviq2_md = lang_dir / "vviq2.md"
+    if vviq2_md.exists():
+        meta, body = load_markdown_file(vviq2_md)
+        sections = split_sections(body)
+        build_page(
+            env,
+            "page.html",
+            {**common, **meta, "sections": sections, "active_page": "mind",
+             "hreflangs": hreflang_links("vviq2", all_pages)},
+            out_dir / "vviq2.html",
+        )
+
     # --- Trial page ---
     trial_md = lang_dir / "trial.md"
     if trial_md.exists():
@@ -296,7 +309,7 @@ def collect_page_paths(languages):
         prefix = "" if lang == DEFAULT_LANG else f"{lang}/"
 
         # Main pages
-        for page_name in ("index", "mind", "amiga", "trial", "timeline"):
+        for page_name in ("index", "mind", "amiga", "vviq2", "trial", "timeline"):
             md = lang_dir / f"{page_name}.md"
             if page_name == "timeline":
                 md = lang_dir / "timeline" / "_intro.md"
