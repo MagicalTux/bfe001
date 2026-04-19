@@ -1,19 +1,19 @@
 nav:
   - id: index
     href: index.html
-    label: "$000000 ホーム"
+    label: "ホーム"
   - id: mind
     href: mind.html
-    label: "$040000 思考"
+    label: "思考"
   - id: amiga
     href: amiga.html
-    label: "$DFF000 Amiga"
+    label: "Amiga"
   - id: blog
     href: blog.html
-    label: "$C00000 ログ"
+    label: "ログ"
   - id: timeline
     href: timeline.html
-    label: "$FC0000 年表"
+    label: "年表"
 
 hero:
   reg: "Bit 1: <code>LED / low-pass filter</code>"
