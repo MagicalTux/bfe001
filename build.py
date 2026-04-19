@@ -11,6 +11,8 @@ from xml.sax.saxutils import escape as xml_escape
 import markdown
 import yaml
 from jinja2 import Environment, FileSystemLoader
+from markdown.extensions import Extension
+from markdown.treeprocessors import Treeprocessor
 
 ROOT = Path(__file__).parent
 CONTENT_DIR = ROOT / "content"
@@ -46,6 +48,28 @@ def load_markdown_file(path):
 def render_markdown(text):
     """Convert Markdown text to HTML."""
     md = markdown.Markdown(extensions=["extra"])
+    return md.convert(text)
+
+
+class MarkExternalLinksProcessor(Treeprocessor):
+    """Open http(s) links that aren't on bfe001.net in a new tab."""
+
+    def run(self, root):
+        for a in root.iter("a"):
+            href = a.get("href", "")
+            if href.startswith(("http://", "https://")) and "bfe001.net" not in href:
+                a.set("target", "_blank")
+                a.set("rel", "noopener noreferrer")
+
+
+class MarkExternalLinksExtension(Extension):
+    def extendMarkdown(self, md):
+        md.treeprocessors.register(MarkExternalLinksProcessor(md), "mark_external_links", 15)
+
+
+def render_markdown_blog(text):
+    """Markdown → HTML with external links tagged to open in a new tab."""
+    md = markdown.Markdown(extensions=["extra", MarkExternalLinksExtension()])
     return md.convert(text)
 
 
@@ -216,7 +240,7 @@ def build_blog(env, lang, languages, common, out_dir, all_pages):
                 "title": post["title"],
                 "description": post["description"],
                 "date": post["date"],
-                "body": render_markdown(post["body"]),
+                "body": render_markdown_blog(post["body"]),
                 "root": sub_root,
                 "nav_root": "../",
                 "active_page": "blog",
@@ -236,7 +260,7 @@ def build_blog(env, lang, languages, common, out_dir, all_pages):
         {
             **common,
             **intro_meta,
-            "intro": render_markdown(intro_body),
+            "intro": render_markdown_blog(intro_body),
             "posts": index_posts,
             "active_page": "blog",
             "hreflangs": hreflang_links("blog", all_pages),
@@ -417,7 +441,7 @@ def generate_rss(lang, strings, posts, out_path):
     for post in posts:
         url = post_feed_url(lang, post["slug"])
         pub_date = format_datetime(post_datetime(post))
-        body_html = render_markdown(post["body"])
+        body_html = render_markdown_blog(post["body"])
         lines.append("    <item>")
         lines.append(f"      <title>{xml_escape(post['title'])}</title>")
         lines.append(f"      <link>{url}</link>")
@@ -463,7 +487,7 @@ def generate_atom(lang, strings, posts, out_path):
     for post in posts:
         url = post_feed_url(lang, post["slug"])
         published = format_atom_datetime(post_datetime(post))
-        body_html = render_markdown(post["body"])
+        body_html = render_markdown_blog(post["body"])
         lines.append("  <entry>")
         lines.append(f"    <title>{xml_escape(post['title'])}</title>")
         lines.append(f'    <link rel="alternate" type="text/html" href="{url}" />')
