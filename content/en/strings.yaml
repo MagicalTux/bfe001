@@ -8,6 +8,9 @@ nav:
   - id: amiga
     href: amiga.html
     label: "$DFF000 Amiga"
+  - id: blog
+    href: blog.html
+    label: "$C00000 Log"
   - id: timeline
     href: timeline.html
     label: "$FC0000 Timeline"
@@ -22,5 +25,8 @@ hero:
 amiga_nav:
   back: "Amiga Hardware"
   toc_label: "Sub-pages"
+
+blog_nav:
+  back: "Log"
 
 footer: "BFE001.net · Mark Karpelès"

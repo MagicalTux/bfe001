@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block structured_data %}
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": {{ title | tojson }},
+        "description": {{ description | tojson }},
+        "url": {{ page_url | tojson }},
+        "inLanguage": {{ lang | tojson }},
+        "datePublished": {{ date | tojson }},
+        "author": {
+            "@type": "Person",
+            "name": "Mark Karpelès"
+        },
+        "isPartOf": {
+            "@type": "Blog",
+            "name": "BFE001 Log",
+            "url": "{{ site_url }}/{% if lang != default_lang %}{{ lang }}/{% endif %}blog.html"
+        }
+    }
+    </script>
+{% endblock %}
+
+{% block after_nav %}
+    <div class="sub-nav">
+        <a href="{{ nav_root }}blog.html">{{ strings.blog_nav.back | default("Log") }}</a>
+        <span class="sub-nav-sep">/</span>
+        <span class="sub-nav-current">{{ title }}</span>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <section>
+        <div class="section-header">
+            <span class="section-addr">{{ date }}</span>
+            <h2 class="section-title">{{ title }}</h2>
+        </div>
+        <div class="prose">
+            {{ body }}
+        </div>
+    </section>
+
+    <nav class="page-nav-bottom">
+        {% if prev_page %}
+        <a href="{{ prev_page.slug }}.html" class="page-nav-prev">
+            <span class="page-nav-dir">&larr;</span>
+            <span class="page-nav-addr">{{ prev_page.date }}</span>
+            <span class="page-nav-label">{{ prev_page.title }}</span>
+        </a>
+        {% else %}
+        <span></span>
+        {% endif %}
+        {% if next_page %}
+        <a href="{{ next_page.slug }}.html" class="page-nav-next">
+            <span class="page-nav-label">{{ next_page.title }}</span>
+            <span class="page-nav-addr">{{ next_page.date }}</span>
+            <span class="page-nav-dir">&rarr;</span>
+        </a>
+        {% endif %}
+    </nav>
+{% endblock %}

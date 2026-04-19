@@ -165,6 +165,83 @@ def build_amiga_subpages(env, lang, languages, common, out_dir, all_pages):
     return subpages
 
 
+def load_blog_posts(blog_dir):
+    """Load blog post metadata from content/{lang}/blog/YYYYMMDD_slug.md files.
+    Returns a list of {slug, date, title, description, body, filename} sorted by filename ascending (oldest first)."""
+    posts = []
+    for path in sorted(blog_dir.glob("[0-9]*.md")):
+        meta, body = load_markdown_file(path)
+        stem = path.stem
+        date_prefix, _, filename_slug = stem.partition("_")
+        slug = meta.get("slug") or filename_slug or stem
+        date = meta.get("date") or f"{date_prefix[:4]}-{date_prefix[4:6]}-{date_prefix[6:8]}"
+        posts.append({
+            "slug": slug,
+            "date": str(date),
+            "title": meta.get("title", slug),
+            "description": meta.get("description", ""),
+            "body": body,
+            "filename": stem,
+        })
+    return posts
+
+
+def build_blog(env, lang, languages, common, out_dir, all_pages):
+    """Build the blog index and individual post pages."""
+    blog_dir = CONTENT_DIR / lang / "blog"
+    if not blog_dir.exists():
+        return
+
+    intro_path = blog_dir / "_intro.md"
+    intro_meta, intro_body = load_markdown_file(intro_path) if intro_path.exists() else ({}, "")
+
+    posts = load_blog_posts(blog_dir)
+
+    # Render each post (oldest first for prev/next ordering)
+    for i, post in enumerate(posts):
+        prev_page = posts[i - 1] if i > 0 else None  # older
+        next_page = posts[i + 1] if i < len(posts) - 1 else None  # newer
+
+        sub_root = "../" + common["root"]
+        page_id = f"blog/{post['slug']}"
+
+        build_page(
+            env,
+            "blog_post.html",
+            {
+                **common,
+                "title": post["title"],
+                "description": post["description"],
+                "date": post["date"],
+                "body": render_markdown(post["body"]),
+                "root": sub_root,
+                "nav_root": "../",
+                "active_page": "blog",
+                "active_page_path": page_id,
+                "prev_page": prev_page,
+                "next_page": next_page,
+                "hreflangs": hreflang_links(page_id, all_pages),
+            },
+            out_dir / "blog" / f"{post['slug']}.html",
+        )
+
+    # Render the index (newest first)
+    index_posts = list(reversed(posts))
+    build_page(
+        env,
+        "blog.html",
+        {
+            **common,
+            **intro_meta,
+            "intro": render_markdown(intro_body),
+            "posts": index_posts,
+            "active_page": "blog",
+            "hreflangs": hreflang_links("blog", all_pages),
+        },
+        out_dir / "blog.html",
+    )
+
+
 def hreflang_links(page_id, all_pages):
     """Return list of (lang, absolute_url) for hreflang tags."""
     lang_paths = all_pages.get(page_id, {})
@@ -228,6 +305,9 @@ def build_lang(env, lang, languages, all_pages):
          "hreflangs": hreflang_links("amiga", all_pages)},
         out_dir / "amiga.html",
     )
+
+    # --- Blog ---
+    build_blog(env, lang, languages, common, out_dir, all_pages)
 
     # --- VVIQ page ---
     vviq2_md = lang_dir / "vviq2.md"
@@ -309,10 +389,12 @@ def collect_page_paths(languages):
         prefix = "" if lang == DEFAULT_LANG else f"{lang}/"
 
         # Main pages
-        for page_name in ("index", "mind", "amiga", "vviq2", "trial", "timeline"):
+        for page_name in ("index", "mind", "amiga", "vviq2", "trial", "blog", "timeline"):
             md = lang_dir / f"{page_name}.md"
             if page_name == "timeline":
                 md = lang_dir / "timeline" / "_intro.md"
+            elif page_name == "blog":
+                md = lang_dir / "blog" / "_intro.md"
             if md.exists():
                 pages.setdefault(page_name, {})[lang] = f"{prefix}{page_name}.html"
 
@@ -323,6 +405,17 @@ def collect_page_paths(languages):
                 slug = path.stem
                 page_id = f"amiga/{slug}"
                 pages.setdefault(page_id, {})[lang] = f"{prefix}amiga/{slug}.html"
+
+        # Blog post pages
+        blog_dir = lang_dir / "blog"
+        if blog_dir.exists():
+            for path in sorted(blog_dir.glob("[0-9]*.md")):
+                meta, _ = load_markdown_file(path)
+                stem = path.stem
+                _, _, filename_slug = stem.partition("_")
+                slug = meta.get("slug") or filename_slug or stem
+                page_id = f"blog/{slug}"
+                pages.setdefault(page_id, {})[lang] = f"{prefix}blog/{slug}.html"
 
     return pages
 

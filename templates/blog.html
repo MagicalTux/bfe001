@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <section>
+        <div class="section-header">
+            <span class="section-addr">$C00000</span>
+            <h2 class="section-title">{{ title }}</h2>
+        </div>
+        <div class="prose">
+            {{ intro }}
+        </div>
+    </section>
+
+    <section>
+        <div class="blog-list">
+            {% for post in posts %}
+            <a class="blog-entry" href="blog/{{ post.slug }}.html">
+                <div class="blog-entry-date">{{ post.date }}</div>
+                <div class="blog-entry-title">{{ post.title }}</div>
+                {% if post.description %}
+                <div class="blog-entry-desc">{{ post.description }}</div>
+                {% endif %}
+            </a>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}

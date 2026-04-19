@@ -1368,3 +1368,53 @@ footer .led-indicator {
 
     .site-nav { gap: 16px; }
 }
+
+/* ═══════════════════════════════════════════
+   BLOG
+   ═══════════════════════════════════════════ */
+.blog-list {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+}
+
+.blog-entry {
+    display: block;
+    text-decoration: none;
+    padding: 18px 20px;
+    border: 1px solid var(--border);
+    background: var(--bg-card);
+    transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.blog-entry:hover {
+    border-color: var(--amber-dim);
+    background: var(--bg-surface);
+}
+
+.blog-entry-date {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--amber-dim);
+    letter-spacing: 0.1em;
+    margin-bottom: 6px;
+}
+
+.blog-entry-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--text-bright);
+}
+
+.blog-entry:hover .blog-entry-title {
+    color: var(--amber);
+}
+
+.blog-entry-desc {
+    font-size: 15px;
+    color: var(--text);
+    max-width: 620px;
+    margin-top: 8px;
+}
+
