@@ -3,7 +3,10 @@
 
 import re
 import sys
+from datetime import date, datetime, timezone
+from email.utils import format_datetime
 from pathlib import Path
+from xml.sax.saxutils import escape as xml_escape
 
 import markdown
 import yaml
@@ -354,6 +357,179 @@ def build_lang(env, lang, languages, all_pages):
     )
 
 
+def post_datetime(post):
+    """Return a timezone-aware datetime for a blog post.
+    YAML parses `date: YYYY-MM-DD` as a datetime.date; we promote to 00:00 UTC."""
+    d = post.get("date")
+    if isinstance(d, datetime):
+        return d if d.tzinfo else d.replace(tzinfo=timezone.utc)
+    if isinstance(d, date):
+        return datetime(d.year, d.month, d.day, tzinfo=timezone.utc)
+    s = str(d)
+    try:
+        parsed = datetime.fromisoformat(s)
+        return parsed if parsed.tzinfo else parsed.replace(tzinfo=timezone.utc)
+    except ValueError:
+        parts = s.split("-")
+        return datetime(int(parts[0]), int(parts[1]), int(parts[2]), tzinfo=timezone.utc)
+
+
+def post_feed_url(lang, slug):
+    prefix = "" if lang == DEFAULT_LANG else f"{lang}/"
+    return f"{SITE_URL}/{prefix}blog/{slug}.html"
+
+
+def feed_channel_url(lang):
+    prefix = "" if lang == DEFAULT_LANG else f"{lang}/"
+    return f"{SITE_URL}/{prefix}blog.html"
+
+
+def feed_self_url(lang, filename):
+    prefix = "" if lang == DEFAULT_LANG else f"{lang}/"
+    return f"{SITE_URL}/{prefix}{filename}"
+
+
+def generate_rss(lang, strings, posts, out_path):
+    """Generate an RSS 2.0 feed for one language's blog."""
+    channel_title = strings.get("blog_nav", {}).get("back", "Log")
+    channel_desc = "Short entries on open source, life, and whatever else."
+    if lang == "ja":
+        channel_desc = "オープンソース、日常、その他もろもろの短い記録。"
+    channel_link = feed_channel_url(lang)
+    self_link = feed_self_url(lang, "feed.xml")
+
+    lines = ['<?xml version="1.0" encoding="UTF-8"?>']
+    lines.append('<rss version="2.0"')
+    lines.append('     xmlns:atom="http://www.w3.org/2005/Atom"')
+    lines.append('     xmlns:content="http://purl.org/rss/1.0/modules/content/"')
+    lines.append('     xmlns:dc="http://purl.org/dc/elements/1.1/">')
+    lines.append("  <channel>")
+    lines.append(f"    <title>BFE001 — {xml_escape(channel_title)}</title>")
+    lines.append(f"    <link>{channel_link}</link>")
+    lines.append(f'    <atom:link href="{self_link}" rel="self" type="application/rss+xml" />')
+    lines.append(f"    <description>{xml_escape(channel_desc)}</description>")
+    lines.append(f"    <language>{lang}</language>")
+
+    if posts:
+        last_build = format_datetime(post_datetime(posts[0]))
+        lines.append(f"    <lastBuildDate>{last_build}</lastBuildDate>")
+
+    for post in posts:
+        url = post_feed_url(lang, post["slug"])
+        pub_date = format_datetime(post_datetime(post))
+        body_html = render_markdown(post["body"])
+        lines.append("    <item>")
+        lines.append(f"      <title>{xml_escape(post['title'])}</title>")
+        lines.append(f"      <link>{url}</link>")
+        lines.append(f'      <guid isPermaLink="true">{url}</guid>')
+        lines.append(f"      <pubDate>{pub_date}</pubDate>")
+        lines.append("      <dc:creator>Mark Karpelès</dc:creator>")
+        if post.get("description"):
+            lines.append(f"      <description>{xml_escape(post['description'])}</description>")
+        lines.append(f"      <content:encoded><![CDATA[{body_html}]]></content:encoded>")
+        lines.append("    </item>")
+
+    lines.append("  </channel>")
+    lines.append("</rss>")
+
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    with open(out_path, "w", encoding="utf-8") as f:
+        f.write("\n".join(lines) + "\n")
+    print(f"  {out_path.relative_to(ROOT)}")
+
+
+def generate_atom(lang, strings, posts, out_path):
+    """Generate an Atom 1.0 feed for one language's blog."""
+    channel_title = strings.get("blog_nav", {}).get("back", "Log")
+    channel_subtitle = "Short entries on open source, life, and whatever else."
+    if lang == "ja":
+        channel_subtitle = "オープンソース、日常、その他もろもろの短い記録。"
+    channel_link = feed_channel_url(lang)
+    self_link = feed_self_url(lang, "atom.xml")
+
+    updated = format_atom_datetime(post_datetime(posts[0])) if posts else format_atom_datetime(datetime.now(timezone.utc))
+    feed_id = channel_link
+
+    lines = ['<?xml version="1.0" encoding="UTF-8"?>']
+    lines.append(f'<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="{lang}">')
+    lines.append(f"  <title>BFE001 — {xml_escape(channel_title)}</title>")
+    lines.append(f"  <subtitle>{xml_escape(channel_subtitle)}</subtitle>")
+    lines.append(f'  <link rel="alternate" type="text/html" href="{channel_link}" />')
+    lines.append(f'  <link rel="self" type="application/atom+xml" href="{self_link}" />')
+    lines.append(f"  <id>{feed_id}</id>")
+    lines.append(f"  <updated>{updated}</updated>")
+    lines.append("  <author><name>Mark Karpelès</name></author>")
+
+    for post in posts:
+        url = post_feed_url(lang, post["slug"])
+        published = format_atom_datetime(post_datetime(post))
+        body_html = render_markdown(post["body"])
+        lines.append("  <entry>")
+        lines.append(f"    <title>{xml_escape(post['title'])}</title>")
+        lines.append(f'    <link rel="alternate" type="text/html" href="{url}" />')
+        lines.append(f"    <id>{url}</id>")
+        lines.append(f"    <published>{published}</published>")
+        lines.append(f"    <updated>{published}</updated>")
+        if post.get("description"):
+            lines.append(f"    <summary>{xml_escape(post['description'])}</summary>")
+        lines.append(f'    <content type="html"><![CDATA[{body_html}]]></content>')
+        lines.append("  </entry>")
+
+    lines.append("</feed>")
+
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    with open(out_path, "w", encoding="utf-8") as f:
+        f.write("\n".join(lines) + "\n")
+    print(f"  {out_path.relative_to(ROOT)}")
+
+
+def format_atom_datetime(dt):
+    """Format a datetime in RFC 3339 (Atom-compatible)."""
+    if dt.tzinfo is None:
+        dt = dt.replace(tzinfo=timezone.utc)
+    return dt.strftime("%Y-%m-%dT%H:%M:%S") + (
+        "Z" if dt.utcoffset() == timezone.utc.utcoffset(dt) else dt.strftime("%z")
+    )
+
+
+def generate_news_sitemap(posts_by_lang, out_path):
+    """Generate a Google News sitemap for blog posts from the last 48 hours.
+
+    See https://developers.google.com/search/docs/crawling-indexing/sitemaps/news-sitemap
+    An empty <urlset> is still valid if no posts are recent enough."""
+    cutoff = datetime.now(timezone.utc).timestamp() - 2 * 24 * 60 * 60
+
+    lines = ['<?xml version="1.0" encoding="UTF-8"?>']
+    lines.append('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"')
+    lines.append('        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">')
+
+    for lang, posts in posts_by_lang.items():
+        for post in posts:
+            dt = post_datetime(post)
+            if dt.timestamp() < cutoff:
+                continue
+            url = post_feed_url(lang, post["slug"])
+            pub_date = format_atom_datetime(dt)
+            pub_name = "BFE001" if lang == DEFAULT_LANG else "BFE001 (日本語)"
+            lines.append("  <url>")
+            lines.append(f"    <loc>{url}</loc>")
+            lines.append("    <news:news>")
+            lines.append("      <news:publication>")
+            lines.append(f"        <news:name>{xml_escape(pub_name)}</news:name>")
+            lines.append(f"        <news:language>{lang}</news:language>")
+            lines.append("      </news:publication>")
+            lines.append(f"      <news:publication_date>{pub_date}</news:publication_date>")
+            lines.append(f"      <news:title>{xml_escape(post['title'])}</news:title>")
+            lines.append("    </news:news>")
+            lines.append("  </url>")
+
+    lines.append("</urlset>")
+
+    with open(out_path, "w", encoding="utf-8") as f:
+        f.write("\n".join(lines) + "\n")
+    print(f"  {out_path.relative_to(ROOT)}")
+
+
 def generate_sitemap(pages):
     """Generate sitemap.xml from a list of canonical URLs."""
     lines = ['<?xml version="1.0" encoding="UTF-8"?>']
@@ -376,7 +552,11 @@ def generate_robots():
     """Generate robots.txt."""
     out = ROOT / "robots.txt"
     with open(out, "w", encoding="utf-8") as f:
-        f.write(f"User-agent: *\nAllow: /\n\nSitemap: {SITE_URL}/sitemap.xml\n")
+        f.write(
+            "User-agent: *\nAllow: /\n\n"
+            f"Sitemap: {SITE_URL}/sitemap.xml\n"
+            f"Sitemap: {SITE_URL}/news-sitemap.xml\n"
+        )
     print(f"  {out.relative_to(ROOT)}")
 
 
@@ -436,7 +616,22 @@ def main():
         print(f"\n[{lang}]")
         build_lang(env, lang, languages, all_pages)
 
-    # Generate sitemap and robots.txt
+    # Generate feeds (RSS + Atom) per language, using posts newest-first
+    print("\n[feeds]")
+    posts_by_lang = {}
+    for lang in languages:
+        blog_dir = CONTENT_DIR / lang / "blog"
+        if not blog_dir.exists():
+            continue
+        strings = load_yaml(CONTENT_DIR / lang / "strings.yaml")
+        posts = list(reversed(load_blog_posts(blog_dir)))  # newest first
+        posts_by_lang[lang] = posts
+
+        feed_root = OUTPUT_DIR if lang == DEFAULT_LANG else OUTPUT_DIR / lang
+        generate_rss(lang, strings, posts, feed_root / "feed.xml")
+        generate_atom(lang, strings, posts, feed_root / "atom.xml")
+
+    # Generate sitemap, news sitemap, and robots.txt
     print("\n[seo]")
     sitemap_entries = []
     for page_id, lang_paths in all_pages.items():
@@ -445,6 +640,7 @@ def main():
             alternates = [(l, f"{SITE_URL}/{p}") for l, p in lang_paths.items()]
             sitemap_entries.append((url, alternates))
     generate_sitemap(sitemap_entries)
+    generate_news_sitemap(posts_by_lang, ROOT / "news-sitemap.xml")
     generate_robots()
 
     print("\nDone.")

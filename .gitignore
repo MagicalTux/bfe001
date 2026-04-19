@@ -9,4 +9,9 @@
 /blog/*.html
 /ja/blog/*.html
 /sitemap.xml
+/news-sitemap.xml
+/feed.xml
+/atom.xml
+/ja/feed.xml
+/ja/atom.xml
 /robots.txt

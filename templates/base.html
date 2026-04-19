@@ -18,6 +18,8 @@
     {% for hl_lang, hl_url in hreflangs %}
     <link rel="alternate" hreflang="{{ hl_lang }}" href="{{ hl_url }}">
     {% endfor %}
+    <link rel="alternate" type="application/rss+xml" title="BFE001 Log (RSS)" href="{{ site_url }}/{% if lang != default_lang %}{{ lang }}/{% endif %}feed.xml">
+    <link rel="alternate" type="application/atom+xml" title="BFE001 Log (Atom)" href="{{ site_url }}/{% if lang != default_lang %}{{ lang }}/{% endif %}atom.xml">
     <meta property="og:type" content="website">
     <meta property="og:title" content="{{ title }}">
     <meta property="og:description" content="{{ description }}">
