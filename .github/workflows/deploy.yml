@@ -34,10 +34,10 @@ jobs:
         run: |
           mkdir _site
           cp -r *.html style.css ja/ _site/
-          for d in amiga images fonts static; do
+          for d in amiga blog images fonts static; do
             [ -d "$d" ] && cp -r "$d" _site/ || true
           done
-          for f in CNAME sitemap.xml robots.txt; do
+          for f in CNAME sitemap.xml news-sitemap.xml robots.txt feed.xml atom.xml; do
             [ -f "$f" ] && cp "$f" _site/ || true
           done
 
