@@ -42,11 +42,7 @@ with partners or friends.
 
 Including a group that isn't around anymore, by writing over a word
 that a lot of living people use happily, isn't really inclusion.
-It's a trade, and it's one the loudest voice of the year gets to make
-on everyone else's behalf.
-
-And if we're counting users, there are a lot more anime otaku on git
-than there are actual slaves. (Let me know if I'm wrong.)
+It's a trade, and not one everyone in the room was asked about.
 
 Nothing against `main`. I just don't like pretending the rename did
 something it didn't. Mine will keep saying `master` until someone
