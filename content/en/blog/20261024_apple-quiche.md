@@ -14,5 +14,6 @@ it a quiche. The page has the shortcrust (or where to cut corners if
 you can buy one ready-made), how to slice the apples, the appareil,
 and the two-step baking.
 
-One warning repeated from the recipe: if you go with rum, use amber
-rum from Martinique. Other rums don't work in this pie.
+One warning repeated from the recipe: if you go with rum, use a
+French-style amber *rhum agricole*, such as from Martinique. Other rums
+don't work in this pie.

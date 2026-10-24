@@ -40,21 +40,36 @@ flour is enough for one large pie or two small ones.
 Use sweet apples: they caramelize nicely in the oven, and the sweeter the
 better. Avoid green, tart apples like Granny Smith.
 
+How many depends on their size. You want enough to fill the pan while leaving
+some room for the appareil; I usually end up using **3 to 4 apples**.
+
 1. Prick the crust all over with a fork.
-2. Cut the apples into thin slices, about **2 mm**. A bit thicker or thinner is
-   fine, but thick slices may need more time in the oven.
-3. Arrange the slices on the crust.
+2. Peel the apples (always) and cut them into thin slices, about **2 mm**. A
+   bit thicker or thinner is fine, but thick slices may need more time in the
+   oven.
+3. Build the filling in layers:
+    - a first layer of slices, neatly overlapping, all in the same direction
+    - a few slices laid across them as a scaffold
+    - a second neat layer
+    - another scaffold
+    - a final neat layer on top
+
+Whatever apple is left over, I often turn into jam to eat with the vanilla ice
+cream.
 
 <!-- section: $A991E3 "The Appareil" -->
 
 - **50 g crème fraîche**
 - **6 eggs**: 3 whole, plus the yolks only of the other 3
 - **60–80 g sugar**, depending on how sweet you want it
-- **one** of:
-    - amber rum from Martinique (*rhum ambré de Martinique*). Don't use
-      Caribbean rum or any other rum; they don't work in this pie.
-    - vanilla extract
+- the secret ingredient, **one** of:
+    - a splash of French-style amber *rhum agricole* (*rhum agricole ambré*,
+      such as from Martinique). Other rums don't work in this pie.
+    - a few drops of vanilla extract
 - *optional:* sliced almonds
+
+The secret ingredient should stay discreet: you want a hint, not a taste of
+rum. How much is up to you.
 
 Mix everything well, pour it over the apples, and put it in the oven
 immediately.
@@ -63,6 +78,10 @@ immediately.
 
 - **180 °C for 30 minutes**
 - then **150 °C for 30 minutes**
+
+Aim for a nicely golden top with some browner, caramelized patches. At 150 °C
+there's little risk of overcooking, so it's fine to leave it a bit longer if it
+isn't there yet. Thicker slices may need some extra time at this stage.
 
 You can let it rest for a while so the eggs set, or eat it right away, accepting it'll go all over the place.
 
