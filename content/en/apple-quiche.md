@@ -33,7 +33,8 @@ flour is enough for one large pie or two small ones.
    le beurre*).
 3. Pour in the salted water in small increments, mixing as you go, and stop
    once you like the consistency. You may not need all of it.
-4. Roll it out and line the pie pan.
+4. Put the dough in the fridge for about **15 minutes** so it firms up.
+5. Roll it out and line the pie pan.
 
 <!-- section: $A991E2 "The Apples" -->
 
@@ -43,7 +44,7 @@ better. Avoid green, tart apples like Granny Smith.
 How many depends on their size. You want enough to fill the pan while leaving
 some room for the appareil; I usually end up using **3 to 4 apples**.
 
-1. Prick the crust all over with a fork.
+1. Prick the crust all over with a fork. No need to pre-bake it.
 2. Peel the apples (always) and cut them into thin slices, about **2 mm**. A
    bit thicker or thinner is fine, but thick slices may need more time in the
    oven.
