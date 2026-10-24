@@ -464,6 +464,27 @@ section.visible {
     max-width: 100%;
 }
 
+.prose ul,
+.prose ol {
+    margin-bottom: 24px;
+    padding-left: 1.6em;
+    max-width: 640px;
+}
+
+.prose li {
+    margin-bottom: 6px;
+}
+
+.prose li > ul,
+.prose li > ol {
+    margin-top: 6px;
+    margin-bottom: 0;
+}
+
+.prose li::marker {
+    color: var(--amber-dim);
+}
+
 .prose strong {
     color: var(--text-bright);
     font-weight: 500;
