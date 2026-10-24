@@ -362,6 +362,19 @@ def build_lang(env, lang, languages, all_pages):
             out_dir / "trial.html",
         )
 
+    # --- Apple quiche page (unlisted) ---
+    apple_quiche_md = lang_dir / "apple-quiche.md"
+    if apple_quiche_md.exists():
+        meta, body = load_markdown_file(apple_quiche_md)
+        sections = split_sections(body)
+        build_page(
+            env,
+            "page.html",
+            {**common, **meta, "sections": sections, "active_page": "apple-quiche",
+             "hreflangs": hreflang_links("apple-quiche", all_pages)},
+            out_dir / "apple-quiche.html",
+        )
+
     # --- Timeline page ---
     timeline_dir = lang_dir / "timeline"
     intro_meta, intro_body = load_markdown_file(timeline_dir / "_intro.md")
@@ -593,7 +606,7 @@ def collect_page_paths(languages):
         prefix = "" if lang == DEFAULT_LANG else f"{lang}/"
 
         # Main pages
-        for page_name in ("index", "mind", "amiga", "vviq2", "trial", "blog", "timeline"):
+        for page_name in ("index", "mind", "amiga", "vviq2", "trial", "apple-quiche", "blog", "timeline"):
             md = lang_dir / f"{page_name}.md"
             if page_name == "timeline":
                 md = lang_dir / "timeline" / "_intro.md"
