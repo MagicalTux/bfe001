@@ -37,6 +37,9 @@ flour is enough for one large pie or two small ones.
 
 <!-- section: $A991E2 "The Apples" -->
 
+Use sweet apples: they caramelize nicely in the oven, and the sweeter the
+better. Avoid green, tart apples like Granny Smith.
+
 1. Prick the crust all over with a fork.
 2. Cut the apples into thin slices, about **2 mm**. A bit thicker or thinner is
    fine, but thick slices may need more time in the oven.
