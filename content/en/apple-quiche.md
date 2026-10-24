@@ -60,6 +60,6 @@ immediately.
 - **180 °C for 30 minutes**
 - then **150 °C for 30 minutes**
 
-You can let it rest for a while so the eggs set, or eat it right away.
+You can let it rest for a while so the eggs set, or eat it right away, accepting it'll go all over the place.
 
 It goes well with vanilla ice cream.
