@@ -22,17 +22,18 @@ If you can't find one, it's simple to make:
 
 - **300 g flour**
 - **150 g butter**
-- salt
-- water
+- **1 teaspoon salt** (5–6 g)
+- **80–100 ml cold water**
 
 The rule is twice as much flour as butter, by weight. 150 g butter to 300 g
 flour is enough for one large pie or two small ones.
 
-1. Rub the butter into the flour until it looks like sand (in French: *sabler
+1. Before you start, dissolve the salt in the water so it's ready to go.
+2. Rub the butter into the flour until it looks like sand (in French: *sabler
    le beurre*).
-2. Dissolve the salt in the water, then add it to the mix bit by bit until the
-   dough reaches the right consistency.
-3. Roll it out and line the pie pan.
+3. Pour in the salted water in small increments, mixing as you go, and stop
+   once you like the consistency. You may not need all of it.
+4. Roll it out and line the pie pan.
 
 <!-- section: $A991E2 "The Apples" -->
 
